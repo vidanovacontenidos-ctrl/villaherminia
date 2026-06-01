@@ -493,31 +493,34 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
   <div style="max-width:1300px;margin:0 auto">
     <div class="sh fi"><p class="sl">Lo que está pasando</p><h2 class="st">Noticias del<br><span>Club</span></h2></div>
     <div class="not-grid">
+      <!-- DIA DEL HINCHA — nueva noticia principal -->
       <a class="nc feat fi" href="#">
+        <img src="img/noticias/diahincha.jpg" alt="Día del Hincha de Villa Herminia">
+        <div class="nc-body">
+          <span class="nc-tag">10 de Abril</span>
+          <h3 class="nc-title">Día del Hincha de Villa Herminia</h3>
+          <p class="nc-excerpt">El 10 de abril celebramos el Día del Hincha de Villa Herminia. Una fecha especial para todos los que llevan el verde en el corazón. ¡Gracias por ser parte!</p>
+          <p class="nc-meta">10 Abr · Fecha especial</p>
+        </div>
+      </a>
+      <!-- MALVINAS -->
+      <a class="nc fi" href="#">
         <img src="img/noticias/malvinas.jpg" alt="Proyecto Mural Tapitas Malvinas Argentinas">
         <div class="nc-body">
           <span class="nc-tag">Proyecto 2026</span>
-          <h3 class="nc-title">Mural Tapitas — Homenaje a los Veteranos de Malvinas Argentinas</h3>
-          <p class="nc-excerpt">Villa Herminia lanza el Proyecto Mural Tapitas Malvinas Argentinas 2026. Un homenaje a los veteranos y caídos. Construyendo memoria, identidad y pertenencia desde el barrio.</p>
+          <h3 class="nc-title">Mural Tapitas — Homenaje a los Veteranos de Malvinas</h3>
+          <p class="nc-excerpt">Un homenaje a los veteranos y caídos. Construyendo memoria, identidad y pertenencia desde el barrio.</p>
           <p class="nc-meta">Jun 2026 · Proyecto institucional</p>
         </div>
       </a>
+      <!-- REDES -->
       <a class="nc fi" href="https://www.instagram.com/sfvillaherminia" target="_blank">
         <img src="img/noticias/redes.jpg" alt="Seguinos @sfvillaherminia">
         <div class="nc-body">
           <span class="nc-tag">Redes Sociales</span>
           <h3 class="nc-title">Seguinos en todas las plataformas</h3>
-          <p class="nc-excerpt">@sfvillaherminia en Facebook, X, Instagram, YouTube y TikTok. Todo el club en un solo lugar.</p>
+          <p class="nc-excerpt">@sfvillaherminia en Facebook, X, Instagram, YouTube y TikTok.</p>
           <p class="nc-meta">@sfvillaherminia</p>
-        </div>
-      </a>
-      <a class="nc fi" href="#">
-        <img src="img/noticias/masque.jpg" alt="Mucho más que un club de barrio">
-        <div class="nc-body">
-          <span class="nc-tag">Institucional</span>
-          <h3 class="nc-title">"Mucho más que un club de barrio"</h3>
-          <p class="nc-excerpt">102 años construyendo comunidad, deporte y cultura. Villa Herminia es el corazón del barrio.</p>
-          <p class="nc-meta">1924 — 2026</p>
         </div>
       </a>
     </div>
@@ -531,9 +534,9 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
     <div class="sh fi"><p class="sl">Deportes &amp; Actividades</p><h2 class="st">Nuestras<br><span>Disciplinas</span></h2></div>
     <div class="disc-grid">
 
-      <!-- VOLEY FEMENINO — landscape team shot -->
-      <div class="dc landscape fi" onclick="openDisc('voley-f')">
-        <div class="dc-bg" style="background-image:url('img/disciplinas/voley/foto1.jpg')"></div>
+      <!-- VOLEY FEMENINO — portrait -->
+      <div class="dc portrait fi" onclick="openDisc('voley-f')">
+        <div class="dc-bg" style="background-image:url('img/disciplinas/voley/foto1.jpg');background-position:top center"></div>
         <div class="dc-ov"></div><div class="dc-hov"></div>
         <div class="dc-num">01</div>
         <div class="dc-content">
@@ -544,7 +547,7 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
         </div>
       </div>
 
-      <!-- BABY FUTBOL — portrait (kids posing tall) -->
+      <!-- BABY FUTBOL — portrait -->
       <div class="dc portrait fi" onclick="openDisc('baby')">
         <div class="dc-bg" style="background-image:url('img/disciplinas/baby/foto1.jpg');background-position:top center"></div>
         <div class="dc-ov"></div><div class="dc-hov"></div>
@@ -557,7 +560,7 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
         </div>
       </div>
 
-      <!-- FUTSAL — portrait (tunnel shot is vertical) -->
+      <!-- FUTSAL — portrait -->
       <div class="dc portrait fi" onclick="openDisc('futsal')">
         <div class="dc-bg" style="background-image:url('img/disciplinas/futsal/foto1.jpg');background-position:center center"></div>
         <div class="dc-ov"></div><div class="dc-hov"></div>
@@ -570,9 +573,9 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
         </div>
       </div>
 
-      <!-- TAEKWONDO — landscape (wide gym shot) -->
-      <div class="dc landscape fi" onclick="openDisc('taekwondo')">
-        <div class="dc-bg" style="background-image:url('img/disciplinas/taekwondo/foto1.jpg')"></div>
+      <!-- TAEKWONDO — portrait -->
+      <div class="dc portrait fi" onclick="openDisc('taekwondo')">
+        <div class="dc-bg" style="background-image:url('img/disciplinas/taekwondo/foto1.jpg');background-position:center top"></div>
         <div class="dc-ov"></div><div class="dc-hov"></div>
         <div class="dc-num">04</div>
         <div class="dc-content">
@@ -583,7 +586,7 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
         </div>
       </div>
 
-      <!-- VOLEY MASCULINO — portrait (vertical team photo) -->
+      <!-- VOLEY MASCULINO — portrait -->
       <div class="dc portrait fi" onclick="openDisc('voley-m')">
         <div class="dc-bg" style="background-image:url('img/disciplinas/voley/foto4.jpg');background-position:top center"></div>
         <div class="dc-ov"></div><div class="dc-hov"></div>
@@ -596,10 +599,10 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
         </div>
       </div>
 
-      <!-- ZUMBA / BOXEO / FUNCIONAL — landscape (no photo, keep green gradient) -->
-      <div class="dc landscape fi" onclick="openDisc('bienestar')">
-        <div class="dc-bg" style="background:linear-gradient(135deg,#0f3a1a 0%,#060f08 100%)"></div>
-        <div class="dc-ov"></div><div class="dc-hov"></div>
+      <!-- ZUMBA / BOXEO / FUNCIONAL — portrait, fondo verde -->
+      <div class="dc portrait fi" onclick="openDisc('bienestar')">
+        <div class="dc-bg" style="background:linear-gradient(160deg,#1a5c2e 0%,#0d3d1e 50%,#060f08 100%)"></div>
+        <div class="dc-ov" style="background:linear-gradient(to top,rgba(8,15,10,.9) 0%,rgba(8,15,10,.2) 100%)"></div><div class="dc-hov"></div>
         <div class="dc-num">06</div>
         <div class="dc-content">
           <div class="dc-tag">Centro de Entrenamiento</div>
@@ -640,7 +643,7 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
       <a href="https://www.mercadolibre.com.ar" target="_blank" rel="noopener" class="btn-p">Ver en Mercado Libre →</a>
       <a href="#" class="btn-o">Consultas</a>
     </div>
-    <p style="margin-top:1.5rem;font-size:12px;color:rgba(245,240,232,.25);letter-spacing:1px">También en el club · Croacia 2843, 3 de Febrero</p>
+    <p style="margin-top:1.5rem;font-size:12px;color:rgba(245,240,232,.25);letter-spacing:1px">También en el club · Croacia 2843 (esq. Dardo Rocha), 3 de Febrero</p>
   </div>
 </section>
 
@@ -806,29 +809,22 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
       <a href="#" class="btn-o" style="padding:10px 24px;font-size:11px">👕 Siendo socio</a>
       <a href="#" class="btn-o" style="padding:10px 24px;font-size:11px">🤝 Como voluntario</a>
     </div>
-    <p class="donar-legal">Villa Herminia — Sociedad de Fomento sin fines de lucro · Croacia 2843, 3 de Febrero, GBA<br>Las donaciones pueden ser deducibles según normativa vigente · Recibís comprobante por email</p>
+    <p class="donar-legal">Villa Herminia — Sociedad de Fomento sin fines de lucro · Croacia 2843 (esq. Dardo Rocha), 3 de Febrero<br>Las donaciones pueden ser deducibles según normativa vigente · Recibís comprobante por email</p>
   </div>
 </section>
 
 <!-- SEGUINOS -->
 <section class="seguinos">
-  <div class="seg-inner">
-    <div>
-      <p class="sl">Redes Sociales</p>
-      <h2 class="st" style="font-size:clamp(38px,5vw,66px)">Seguinos<br><span>@sfvillaherminia</span></h2>
-      <p style="font-size:15px;line-height:1.9;color:rgba(245,240,232,.55);margin:1.5rem 0 0">Toda la info del club en tiempo real. Partidos, noticias, eventos y el día a día de Villa Herminia.</p>
-      <div class="soc-btns">
-        <a href="https://www.facebook.com/sfvillaherminia" target="_blank" rel="noopener" class="soc-btn">Facebook</a>
-        <a href="https://x.com/jvillaherminia" target="_blank" rel="noopener" class="soc-btn">X / Twitter</a>
-        <a href="https://www.instagram.com/sfvillaherminia" target="_blank" rel="noopener" class="soc-btn">Instagram</a>
-        <a href="https://www.youtube.com/@masqueunclubmasqueunclub" target="_blank" rel="noopener" class="soc-btn yt">▶ YouTube</a>
-        <a href="https://www.tiktok.com/@villaherminiaoficial" target="_blank" rel="noopener" class="soc-btn">TikTok</a>
-      </div>
-    </div>
-    <div class="seg-photos">
-      <img src="img/noticias/masque.jpg" alt="Mucho más que un club">
-      <img src="img/noticias/redes.jpg" alt="Seguinos en redes">
-      <img src="img/noticias/102anios.jpg" alt="102 años">
+  <div style="max-width:900px;margin:0 auto;padding:5rem 4rem;text-align:center">
+    <p class="sl" style="justify-content:center">Redes Sociales</p>
+    <h2 class="st" style="font-size:clamp(38px,5vw,66px)">Seguinos<br><span>@sfvillaherminia</span></h2>
+    <p style="font-size:15px;line-height:1.9;color:rgba(245,240,232,.55);margin:1.5rem auto 0;max-width:540px">Toda la info del club en tiempo real. Partidos, noticias, eventos y el día a día de Villa Herminia.</p>
+    <div class="soc-btns" style="justify-content:center;margin-top:2rem">
+      <a href="https://www.facebook.com/sfvillaherminia" target="_blank" rel="noopener" class="soc-btn">Facebook</a>
+      <a href="https://x.com/jvillaherminia" target="_blank" rel="noopener" class="soc-btn">X / Twitter</a>
+      <a href="https://www.instagram.com/sfvillaherminia" target="_blank" rel="noopener" class="soc-btn">Instagram</a>
+      <a href="https://www.youtube.com/@masqueunclubmasqueunclub" target="_blank" rel="noopener" class="soc-btn yt">▶ YouTube</a>
+      <a href="https://www.tiktok.com/@villaherminiaoficial" target="_blank" rel="noopener" class="soc-btn">TikTok</a>
     </div>
   </div>
 </section>
@@ -872,7 +868,7 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
     <div>
       <p class="fc-title">Contacto</p>
       <ul class="fc-links">
-        <li><a href="https://maps.google.com/?q=Croacia+2843+3+de+Febrero" target="_blank">📍 Croacia 2843, 3 de Febrero</a></li>
+        <li><a href="https://maps.google.com/?q=Croacia+2843+Dardo+Rocha+3+de+Febrero+Buenos+Aires" target="_blank">📍 Croacia 2843 (esq. Dardo Rocha), 3 de Febrero</a></li>
         <li><a href="https://www.instagram.com/sfvillaherminia" target="_blank">📷 @sfvillaherminia</a></li>
         <li><a href="https://www.youtube.com/@masqueunclubmasqueunclub" target="_blank">▶ YouTube</a></li>
         <li><a href="https://www.tiktok.com/@villaherminiaoficial" target="_blank">♪ @villaherminiaoficial</a></li>
