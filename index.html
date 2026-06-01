@@ -7,32 +7,31 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%230d3d1e'/%3E%3Cpath d='M50 18 L62 34 L80 37 L68 51 L71 70 L50 61 L29 70 L32 51 L20 37 L38 34 Z' fill='none' stroke='%233da862' stroke-width='3.5'/%3E%3Ctext x='50' y='56' font-family='Arial' font-weight='bold' font-size='20' fill='%233da862' text-anchor='middle'%3ESFVH%3C/text%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,400&family=Barlow+Condensed:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 <style>
-:root {
-  --vd: #0d3d1e; --vm: #1a5c2e; --vv: #2d8c4e; --vc: #3da862; --vmenta: #a8d5b5;
-  --blanco: #f5f0e8; --crema: #e8dfc8; --plata: #b8bec8; --plata-cl: #d4dae4;
-  --negro: #080f0a; --gos: #1a1f1c; --gom: #2a3028;
+:root{
+  --vd:#0d3d1e;--vm:#1a5c2e;--vv:#2d8c4e;--vc:#3da862;--vmenta:#a8d5b5;
+  --blanco:#f5f0e8;--crema:#e8dfc8;--plata:#b8bec8;--plata-cl:#d4dae4;
+  --negro:#080f0a;--gos:#1a1f1c;--gom:#2a3028;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{background:var(--negro);color:var(--blanco);font-family:'Barlow',sans-serif;overflow-x:hidden}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 4rem;display:flex;align-items:center;justify-content:space-between;height:72px;background:rgba(8,15,10,.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(45,140,78,.2);transition:background .3s}
+/* ===== NAV ===== */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 4rem;display:flex;align-items:center;justify-content:space-between;height:72px;background:rgba(8,15,10,.93);backdrop-filter:blur(20px);border-bottom:1px solid rgba(45,140,78,.2);transition:background .3s}
 .nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none}
 .nav-logo img{width:44px;height:44px;border-radius:50%;flex-shrink:0}
 .nav-logo-text span:first-child{display:block;font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px;color:var(--blanco)}
 .nav-logo-text span:last-child{display:block;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--vc)}
-.nav-links{display:flex;gap:1.8rem;list-style:none;align-items:center}
+.nav-links{display:flex;gap:1.6rem;list-style:none;align-items:center}
 .nav-links a{color:rgba(245,240,232,.7);text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:600;transition:color .2s;position:relative;white-space:nowrap}
 .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--vc);transition:width .3s}
 .nav-links a:hover{color:var(--vmenta)}
 .nav-links a:hover::after{width:100%}
 .nav-cta{background:var(--vv)!important;color:var(--blanco)!important;padding:8px 16px;border-radius:2px}
 .nav-cta:hover{background:var(--vc)!important}
-.nav-cta::after{display:none!important}
-.nav-donar{background:rgba(184,190,200,.12)!important;color:var(--blanco)!important;padding:8px 16px;border-radius:2px;border:1px solid rgba(184,190,200,.45)!important;font-weight:700!important}
-.nav-donar:hover{background:rgba(184,190,200,.25)!important;color:var(--plata-cl)!important}
-.nav-donar::after{display:none!important}
+.nav-cta::after,.nav-donar::after{display:none!important}
+.nav-donar{background:rgba(184,190,200,.12)!important;color:var(--blanco)!important;padding:8px 16px;border-radius:2px;border:1px solid rgba(184,190,200,.4)!important;font-weight:700!important}
+.nav-donar:hover{background:rgba(184,190,200,.24)!important}
 
 /* HAMBURGER */
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:none;background:transparent;z-index:1001}
@@ -40,34 +39,51 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 4rem;display:flex
 .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .hamburger.open span:nth-child(2){opacity:0}
 .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.mobile-menu{display:none;position:fixed;inset:0;z-index:999;background:rgba(8,15,10,.98);flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;padding-top:72px}
-.mobile-menu.open{display:flex}
-.mobile-menu a{color:var(--blanco);text-decoration:none;font-family:'Bebas Neue',sans-serif;font-size:34px;letter-spacing:4px;text-transform:uppercase;transition:color .2s}
-.mobile-menu a:hover{color:var(--vc)}
-.mobile-menu .m-donar{background:rgba(184,190,200,.12);color:var(--blanco)!important;padding:10px 36px;border:1px solid rgba(184,190,200,.4)}
+.mmenu{display:none;position:fixed;inset:0;z-index:999;background:rgba(8,15,10,.98);flex-direction:column;align-items:center;justify-content:center;gap:2.2rem;padding-top:72px}
+.mmenu.open{display:flex}
+.mmenu a{color:var(--blanco);text-decoration:none;font-family:'Bebas Neue',sans-serif;font-size:34px;letter-spacing:4px;text-transform:uppercase;transition:color .2s}
+.mmenu a:hover{color:var(--vc)}
+.mmenu .m-donar{background:rgba(184,190,200,.1);padding:10px 36px;border:1px solid rgba(184,190,200,.35)}
 
-/* HERO */
+/* ===== HERO ===== */
 .hero{position:relative;height:100vh;min-height:700px;display:flex;align-items:flex-end;overflow:hidden}
 .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(29,94,50,.4) 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(13,61,30,.6) 0%,transparent 50%),linear-gradient(180deg,rgba(8,15,10,.3) 0%,rgba(8,15,10,.95) 85%),linear-gradient(135deg,#0d3d1e 0%,#091a0e 50%,#060e09 100%)}
 .hero-pattern{position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(45,140,78,.06) 39px,rgba(45,140,78,.06) 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(45,140,78,.06) 39px,rgba(45,140,78,.06) 40px)}
-.hero-emblem{position:absolute;right:8%;top:50%;transform:translateY(-50%);width:420px;height:420px;opacity:.1}
+.hero-emblem{position:absolute;right:8%;top:50%;transform:translateY(-50%);width:380px;height:380px;opacity:.1}
 .hero-emblem img{width:100%;height:100%;object-fit:contain;filter:brightness(2) saturate(0) contrast(1.5)}
-.hero-content{position:relative;z-index:10;padding:0 4rem 8rem;max-width:900px}
+.hero-content{position:relative;z-index:10;padding:0 4rem 8rem;max-width:860px}
 .hero-tagline{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:6px;text-transform:uppercase;color:var(--vc);margin-bottom:1.5rem;display:flex;align-items:center;gap:12px}
 .hero-tagline::before{content:'';display:block;width:40px;height:1px;background:var(--vv)}
-.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(72px,10vw,140px);line-height:.9;letter-spacing:2px;color:var(--blanco);margin-bottom:.5rem}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(70px,10vw,136px);line-height:.9;letter-spacing:2px;color:var(--blanco);margin-bottom:.5rem}
 .hero-title span{color:var(--vc)}
-.hero-subtitle{font-family:'Barlow Condensed',sans-serif;font-size:clamp(24px,4vw,48px);font-weight:300;letter-spacing:8px;color:var(--crema);opacity:.8;text-transform:uppercase;margin-bottom:2.5rem}
-.hero-stats{display:flex;gap:3rem;margin-bottom:3rem;flex-wrap:wrap}
-.hero-stat{border-left:2px solid var(--vv);padding-left:16px}
-.hero-stat-num{font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--vc);line-height:1}
-.hero-stat-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(245,240,232,.5);font-weight:600}
+.hero-subtitle{font-family:'Barlow Condensed',sans-serif;font-size:clamp(22px,3.5vw,46px);font-weight:300;letter-spacing:8px;color:var(--crema);opacity:.8;text-transform:uppercase;margin-bottom:2.5rem}
+.hero-stats{display:flex;gap:2.5rem;margin-bottom:3rem;flex-wrap:wrap}
+.hs{border-left:2px solid var(--vv);padding-left:16px}
+.hs-num{font-family:'Bebas Neue',sans-serif;font-size:34px;color:var(--vc);line-height:1}
+.hs-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(245,240,232,.5);font-weight:600}
 .hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
 .hero-scroll{position:absolute;bottom:2.5rem;right:4rem;display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(245,240,232,.3);font-size:9px;letter-spacing:3px;text-transform:uppercase}
 .hero-scroll-line{width:1px;height:60px;background:linear-gradient(to bottom,transparent,rgba(45,140,78,.6));animation:scrollP 2s ease-in-out infinite}
 @keyframes scrollP{0%,100%{opacity:.3}50%{opacity:1}}
 
-/* BUTTONS */
+/* ===== 102 AÑOS BANNER ===== */
+.banner-102{position:relative;overflow:hidden;background:var(--negro)}
+.banner-102 img.b102-foto{width:100%;max-height:600px;object-fit:cover;object-position:center top;display:block;filter:brightness(.75)}
+.b102-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(8,15,10,.85) 0%,rgba(8,15,10,.4) 50%,rgba(8,15,10,.1) 100%)}
+.b102-content{position:absolute;top:0;left:0;bottom:0;display:flex;flex-direction:column;justify-content:center;padding:0 5rem;max-width:600px;z-index:2}
+.b102-tag{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--vc);font-weight:600;display:flex;align-items:center;gap:12px;margin-bottom:1.5rem}
+.b102-tag::before{content:'';display:block;width:30px;height:1px;background:var(--vv)}
+.b102-num{font-family:'Bebas Neue',sans-serif;font-size:clamp(100px,16vw,200px);line-height:.85;color:var(--blanco);letter-spacing:-4px}
+.b102-num span{color:var(--vc)}
+.b102-sub{font-family:'Barlow Condensed',sans-serif;font-size:clamp(20px,3vw,36px);letter-spacing:6px;text-transform:uppercase;color:var(--crema);opacity:.7;margin-bottom:1.5rem;font-weight:300}
+.b102-desc{font-size:15px;line-height:1.8;color:rgba(245,240,232,.55);max-width:420px}
+.b102-values{display:flex;gap:2rem;margin-top:2rem;flex-wrap:wrap}
+.b102-val{text-align:center;padding:0 1rem;border-right:1px solid rgba(45,140,78,.3)}
+.b102-val:last-child{border-right:none}
+.b102-val-icon{font-size:20px;margin-bottom:4px}
+.b102-val-label{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(245,240,232,.4)}
+
+/* ===== BUTTONS ===== */
 .btn-p{background:var(--vv);color:var(--blanco);padding:14px 36px;font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:3px;text-transform:uppercase;font-weight:700;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px))}
 .btn-p:hover{background:var(--vc);transform:translateY(-2px)}
 .btn-o{background:transparent;color:var(--blanco);padding:14px 36px;font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:3px;text-transform:uppercase;font-weight:700;border:1px solid rgba(245,240,232,.3);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
@@ -75,30 +91,36 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 4rem;display:flex
 .btn-d{background:rgba(184,190,200,.1);color:var(--blanco);padding:14px 36px;font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:3px;text-transform:uppercase;font-weight:700;border:1px solid rgba(184,190,200,.4);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px))}
 .btn-d:hover{background:rgba(184,190,200,.22);border-color:var(--plata-cl);color:var(--plata-cl);transform:translateY(-2px)}
 
-/* SECTION COMMON */
+/* ===== SECTION LABELS ===== */
 .sl{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--vc);font-weight:600;display:flex;align-items:center;gap:12px;margin-bottom:1rem}
 .sl::before{content:'';display:block;width:30px;height:1px;background:var(--vv)}
-.st{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,6vw,80px);line-height:.95;letter-spacing:1px;color:var(--blanco)}
+.st{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,6vw,80px);line-height:.95;color:var(--blanco)}
 .st span{color:var(--vc)}
 .sh{margin-bottom:4rem}
 
-/* TICKER */
+/* ===== TICKER ===== */
 .sponsors-ticker{background:var(--vd);border-top:1px solid rgba(45,140,78,.3);border-bottom:1px solid rgba(45,140,78,.3);overflow:hidden;position:relative}
 .ticker-label{position:absolute;left:0;top:0;bottom:0;z-index:10;background:var(--vm);display:flex;align-items:center;padding:0 24px;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--vmenta);font-weight:600;white-space:nowrap;border-right:1px solid rgba(45,140,78,.4)}
-.ticker-track{display:flex;align-items:center;animation:ticker 28s linear infinite;padding:0 0 0 160px;height:64px;width:max-content}
+.ticker-track{display:flex;align-items:center;animation:ticker 28s linear infinite;padding-left:160px;height:64px;width:max-content}
 .ticker-item{display:flex;align-items:center;padding:0 3rem;border-right:1px solid rgba(45,140,78,.2);height:100%}
-.ticker-item-name{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:3px;color:rgba(245,240,232,.5);white-space:nowrap}
-.ticker-item:hover .ticker-item-name{color:var(--blanco)}
+.ti-name{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:3px;color:rgba(245,240,232,.5);white-space:nowrap}
+.ticker-item:hover .ti-name{color:var(--blanco)}
 @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-/* NOTICIAS */
+/* ===== IMPACTO BAR ===== */
+.impacto-bar{background:var(--vm);padding:3rem 4rem;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(45,140,78,.4);border-bottom:1px solid rgba(45,140,78,.4)}
+.ib{text-align:center;padding:1rem;border-right:1px solid rgba(45,140,78,.3)}
+.ib:last-child{border-right:none}
+.ib-num{font-family:'Bebas Neue',sans-serif;font-size:52px;color:var(--blanco);line-height:1}
+.ib-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(245,240,232,.6);font-weight:600;margin-top:4px}
+
+/* ===== NOTICIAS ===== */
 .noticias{padding:6rem 4rem;background:var(--gos)}
-.noticias-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:1px;background:rgba(45,140,78,.12);border:1px solid rgba(45,140,78,.12);margin-top:3rem}
+.not-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:1px;background:rgba(45,140,78,.12);border:1px solid rgba(45,140,78,.12);margin-top:3rem}
 .nc{background:var(--negro);overflow:hidden;cursor:pointer;transition:background .3s;text-decoration:none;display:block}
 .nc:hover{background:var(--gom)}
-.nc img{width:100%;object-fit:cover;display:block}
-.nc.feat img{aspect-ratio:16/9}
-.nc:not(.feat) img{aspect-ratio:3/2}
+.nc.feat img{aspect-ratio:16/9;width:100%;object-fit:cover;display:block}
+.nc:not(.feat) img{aspect-ratio:3/2;width:100%;object-fit:cover;display:block}
 .nc-body{padding:1.5rem 2rem 2rem}
 .nc.feat .nc-body{padding:2rem 2.5rem 2.5rem}
 .nc-tag{display:inline-block;background:rgba(45,140,78,.2);border:1px solid rgba(45,140,78,.4);padding:3px 10px;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--vmenta);margin-bottom:.75rem;font-weight:600}
@@ -107,65 +129,60 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 4rem;display:flex
 .nc-excerpt{font-size:13px;line-height:1.7;color:rgba(245,240,232,.5);margin-bottom:1rem}
 .nc-meta{font-size:10px;letter-spacing:2px;color:rgba(245,240,232,.3);text-transform:uppercase}
 
-/* IMPACTO STATS BAR */
-.impacto-bar{background:var(--vm);padding:3rem 4rem;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(45,140,78,.4);border-bottom:1px solid rgba(45,140,78,.4)}
-.ib-stat{text-align:center;padding:1rem;border-right:1px solid rgba(45,140,78,.3)}
-.ib-stat:last-child{border-right:none}
-.ib-num{font-family:'Bebas Neue',sans-serif;font-size:52px;color:var(--blanco);line-height:1}
-.ib-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(245,240,232,.6);font-weight:600;margin-top:4px}
-
-/* DISCIPLINAS */
+/* ===== DISCIPLINAS ===== */
 .disciplinas{padding:8rem 4rem;background:var(--negro)}
 .disc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(45,140,78,.15);border:1px solid rgba(45,140,78,.15);margin-top:4rem}
-.dc{position:relative;overflow:hidden;cursor:pointer;text-decoration:none;display:block;aspect-ratio:4/3}
+/* portrait cards (9:16 photos) get taller; landscape (16:9) stay wide */
+.dc{position:relative;overflow:hidden;cursor:pointer;text-decoration:none;display:block}
+.dc.landscape{aspect-ratio:4/3}
+.dc.portrait{aspect-ratio:3/4}
 .dc-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s}
-.dc:hover .dc-bg{transform:scale(1.07)}
-.dc-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,15,10,.96) 0%,rgba(8,15,10,.45) 50%,rgba(8,15,10,.2) 100%)}
-.dc-hover{position:absolute;inset:0;background:rgba(13,61,30,.45);opacity:0;transition:opacity .4s}
-.dc:hover .dc-hover{opacity:1}
-.dc-num{position:absolute;top:1.5rem;right:1.5rem;font-family:'Bebas Neue',sans-serif;font-size:56px;color:rgba(45,140,78,.18);line-height:1;z-index:2;transition:color .4s}
+.dc:hover .dc-bg{transform:scale(1.08)}
+.dc-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,15,10,.96) 0%,rgba(8,15,10,.45) 50%,rgba(8,15,10,.15) 100%)}
+.dc-hov{position:absolute;inset:0;background:rgba(13,61,30,.45);opacity:0;transition:opacity .4s}
+.dc:hover .dc-hov{opacity:1}
+.dc-num{position:absolute;top:1.5rem;right:1.5rem;font-family:'Bebas Neue',sans-serif;font-size:54px;color:rgba(45,140,78,.18);line-height:1;z-index:2;transition:color .4s}
 .dc:hover .dc-num{color:rgba(45,140,78,.35)}
 .dc-content{position:absolute;bottom:0;left:0;right:0;padding:2rem;z-index:2}
-.dc-icon{font-size:30px;margin-bottom:.6rem;display:block}
 .dc-tag{display:inline-block;background:rgba(45,140,78,.3);border:1px solid rgba(45,140,78,.6);padding:3px 10px;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--vmenta);margin-bottom:.5rem;font-weight:600}
 .dc-name{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:2px;color:var(--blanco);margin-bottom:.4rem}
 .dc-desc{font-size:12px;line-height:1.6;color:rgba(245,240,232,.5);margin-bottom:.8rem}
 .dc-link{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--vc);display:flex;align-items:center;gap:8px;font-weight:600;transition:gap .2s}
 .dc:hover .dc-link{gap:14px}
 
-/* TIENDA */
+/* ===== TIENDA ===== */
 .tienda{position:relative;min-height:80vh;display:flex;align-items:center;overflow:hidden;background:var(--vd)}
-.tienda-bg-pattern{position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,transparent,transparent 34px,rgba(45,140,78,.08) 34px,rgba(45,140,78,.08) 35px)}
-.tienda-visual{position:absolute;right:0;top:0;bottom:0;width:55%;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.tienda-visual-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 60% 50%,rgba(29,94,50,.8) 0%,rgba(13,61,30,.4) 40%,transparent 70%)}
+.t-pat{position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,transparent,transparent 34px,rgba(45,140,78,.08) 34px,rgba(45,140,78,.08) 35px)}
+.t-vis{position:absolute;right:0;top:0;bottom:0;width:55%;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.t-vis-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 60% 50%,rgba(29,94,50,.8) 0%,rgba(13,61,30,.4) 40%,transparent 70%)}
 .jersey-wrap{position:relative;z-index:1;width:480px;height:480px;display:flex;align-items:center;justify-content:center}
-.jersey{width:320px;height:380px;background:linear-gradient(135deg,var(--vm),var(--vd));clip-path:polygon(20% 0%,80% 0%,100% 15%,100% 100%,0% 100%,0% 15%);position:relative;display:flex;align-items:center;justify-content:center;border:1px solid rgba(45,140,78,.4);animation:jFloat 4s ease-in-out infinite}
+.jersey{width:320px;height:380px;background:linear-gradient(135deg,var(--vm),var(--vd));clip-path:polygon(20% 0%,80% 0%,100% 15%,100% 100%,0% 100%,0% 15%);position:relative;border:1px solid rgba(45,140,78,.4);animation:jFloat 4s ease-in-out infinite}
 @keyframes jFloat{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-12px) rotate(-2deg)}}
 .jersey-crest{position:absolute;top:30%;left:50%;transform:translate(-50%,-50%);width:80px;height:80px}
 .jersey-crest img{width:100%;height:100%;object-fit:contain;filter:brightness(2)}
 .jersey-stripes{position:absolute;inset:0;background:repeating-linear-gradient(180deg,transparent,transparent 30px,rgba(255,255,255,.03) 30px,rgba(255,255,255,.03) 31px);clip-path:inherit}
-.tienda-content{position:relative;z-index:10;padding:6rem 4rem;max-width:50%}
-.prod-feat{list-style:none;margin:2rem 0;display:flex;flex-direction:column;gap:10px}
-.prod-feat li{display:flex;align-items:center;gap:12px;font-size:14px;color:rgba(245,240,232,.7)}
-.prod-feat li::before{content:'';display:block;width:6px;height:6px;background:var(--vc);transform:rotate(45deg);flex-shrink:0}
+.t-content{position:relative;z-index:10;padding:6rem 4rem;max-width:50%}
+.pf{list-style:none;margin:2rem 0;display:flex;flex-direction:column;gap:10px}
+.pf li{display:flex;align-items:center;gap:12px;font-size:14px;color:rgba(245,240,232,.7)}
+.pf li::before{content:'';display:block;width:6px;height:6px;background:var(--vc);transform:rotate(45deg);flex-shrink:0}
 .ml-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(184,190,200,.08);border:1px solid rgba(184,190,200,.25);padding:6px 14px;margin-top:1.5rem;font-size:11px;letter-spacing:1px;color:var(--plata);font-weight:600}
 
-/* PROGRAMAS */
+/* ===== PROGRAMAS ===== */
 .programas{padding:8rem 4rem;background:var(--gos);position:relative;overflow:hidden}
-.prog-bg-txt{position:absolute;bottom:-2rem;right:-2rem;font-family:'Bebas Neue',sans-serif;font-size:280px;color:rgba(45,140,78,.03);line-height:1;pointer-events:none}
+.prog-bgt{position:absolute;bottom:-2rem;right:-2rem;font-family:'Bebas Neue',sans-serif;font-size:280px;color:rgba(45,140,78,.03);line-height:1;pointer-events:none}
 .prog-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:4rem;position:relative;z-index:1}
 .prog-card{background:var(--negro);border:1px solid rgba(45,140,78,.2);position:relative;overflow:hidden;transition:border-color .3s}
 .prog-card:hover{border-color:rgba(45,140,78,.5)}
 .prog-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#f00,#900)}
 .prog-thumb{width:100%;aspect-ratio:16/9;background:var(--gom);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
 .prog-thumb-bg{position:absolute;inset:0;background:linear-gradient(135deg,#0a2e14,#020a04)}
-.yt-play{width:70px;height:50px;background:#f00;border-radius:10px;display:flex;align-items:center;justify-content:center;position:relative;z-index:2;transition:transform .2s}
+.yt-play{width:70px;height:50px;background:#f00;border-radius:10px;display:flex;align-items:center;justify-content:center;position:relative;z-index:2;transition:transform .2s;cursor:pointer}
 .yt-play::after{content:'';border-left:24px solid white;border-top:14px solid transparent;border-bottom:14px solid transparent;margin-left:4px}
 .prog-card:hover .yt-play{transform:scale(1.1)}
-.prog-yt-logo{position:absolute;bottom:10px;right:12px;z-index:2;font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:1px;color:rgba(255,255,255,.35)}
+.prog-ytlogo{position:absolute;bottom:10px;right:12px;z-index:2;font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:1px;color:rgba(255,255,255,.35)}
 .prog-body{padding:1.5rem 2rem 2rem}
 .prog-live{display:inline-flex;align-items:center;gap:6px;background:rgba(220,0,0,.15);border:1px solid rgba(220,0,0,.3);padding:3px 10px;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#e87070;margin-bottom:1rem;font-weight:700}
-.prog-live-dot{width:5px;height:5px;background:#e05050;border-radius:50%;animation:lp 1.5s ease-in-out infinite}
+.prog-dot{width:5px;height:5px;background:#e05050;border-radius:50%;animation:lp 1.5s ease-in-out infinite}
 @keyframes lp{0%,100%{opacity:1}50%{opacity:.3}}
 .prog-soon{display:inline-flex;align-items:center;gap:6px;background:rgba(184,190,200,.1);border:1px solid rgba(184,190,200,.3);padding:3px 10px;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--plata);margin-bottom:1rem;font-weight:700}
 .prog-name{font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:2px;color:var(--blanco);margin-bottom:.5rem}
@@ -174,8 +191,20 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 4rem;display:flex
 .yt-cta:hover{background:#c00}
 .canal-cta{margin-top:3rem;text-align:center;padding:3rem;background:rgba(255,0,0,.05);border:1px solid rgba(255,0,0,.15)}
 .canal-cta p{font-size:14px;color:rgba(245,240,232,.5);margin-bottom:1.5rem}
+/* 3-col video grid */
+.prog-grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:4rem}
+.prog-card3{background:var(--negro);border:1px solid rgba(45,140,78,.2);overflow:hidden;transition:all .3s;text-decoration:none;display:block}
+.prog-card3:hover{border-color:rgba(45,140,78,.5);transform:translateY(-4px)}
+.prog-card3::before{content:'';display:block;height:3px;background:linear-gradient(90deg,#f00,#900)}
+.prog-thumb3{position:relative;aspect-ratio:16/9;overflow:hidden;background:#000}
+.prog-thumb3 img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.prog-card3:hover .prog-thumb3 img{transform:scale(1.04)}
+.prog-play-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.3);transition:background .3s}
+.prog-card3:hover .prog-play-overlay{background:rgba(0,0,0,.15)}
+.prog-body3{padding:1.25rem 1.5rem 1.5rem}
+.prog-desc3{font-size:13px;line-height:1.6;color:rgba(245,240,232,.45)}
 
-/* LIGAS */
+/* ===== LIGAS ===== */
 .ligas{padding:7rem 4rem;background:var(--negro)}
 .ligas-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:3rem}
 .liga-card{background:var(--gos);border:1px solid rgba(45,140,78,.2);padding:2rem;text-align:center;transition:all .3s;position:relative;overflow:hidden}
@@ -184,11 +213,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 4rem;display:flex
 .liga-card:hover::before{opacity:1}
 .liga-sigla{font-family:'Bebas Neue',sans-serif;font-size:48px;letter-spacing:3px;color:var(--vc);line-height:1;margin-bottom:.5rem}
 .liga-nombre{font-size:11px;letter-spacing:1px;color:rgba(245,240,232,.5);line-height:1.5;margin-bottom:1rem}
-.liga-deporte{display:inline-block;background:rgba(45,140,78,.15);border:1px solid rgba(45,140,78,.3);padding:3px 10px;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--vmenta);font-weight:600}
+.liga-dep{display:inline-block;background:rgba(45,140,78,.15);border:1px solid rgba(45,140,78,.3);padding:3px 10px;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--vmenta);font-weight:600}
 
-/* ACCION SOCIAL */
+/* ===== ACCION SOCIAL ===== */
 .accion{padding:8rem 4rem;background:var(--gos)}
-.accion-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:1px;background:rgba(45,140,78,.1);border:1px solid rgba(45,140,78,.1);margin-top:4rem}
+.acc-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:1px;background:rgba(45,140,78,.1);border:1px solid rgba(45,140,78,.1);margin-top:4rem}
 .acc{background:var(--gos);padding:3rem;position:relative;overflow:hidden;transition:background .3s}
 .acc:hover{background:var(--gom)}
 .acc.feat{grid-row:span 2;background:var(--vd)}
@@ -199,32 +228,31 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 4rem;display:flex
 .acc-num{font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--vc);line-height:1;margin-bottom:4px}
 .acc-num-l{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(245,240,232,.35)}
 
-/* SPONSOR / PATROCINIO */
+/* ===== PATROCINIO ===== */
 .patrocinio{padding:8rem 4rem;background:var(--negro);position:relative;overflow:hidden}
 .pat-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(13,61,30,.4) 0%,transparent 60%)}
-.pat-inner{position:relative;z-index:1}
-.pat-intro{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;margin-bottom:6rem}
-.pat-benefits{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:2rem}
-.pat-benefits li{display:flex;align-items:center;gap:12px;font-size:14px;color:rgba(245,240,232,.65)}
-.pat-benefits li::before{content:'';display:block;width:6px;height:6px;background:var(--vc);transform:rotate(45deg);flex-shrink:0}
-.planes-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:3rem}
-.plan-card{background:var(--gos);border:1px solid rgba(45,140,78,.2);padding:2rem;text-align:center;position:relative;transition:all .3s}
-.plan-card:hover{transform:translateY(-6px)}
-.plan-card.platino{border-color:rgba(184,190,200,.4);background:rgba(184,190,200,.05)}
-.plan-card.oro{border-color:rgba(255,200,50,.3);background:rgba(255,200,50,.04)}
-.plan-card.plata{border-color:rgba(160,165,175,.3);background:rgba(160,165,175,.04)}
-.plan-card.bronce{border-color:rgba(160,110,60,.3);background:rgba(160,110,60,.04)}
-.plan-estrella{font-size:36px;margin-bottom:1rem;display:block}
+.pat-intro{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;margin-bottom:5rem;position:relative;z-index:1}
+.pat-ben{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:2rem}
+.pat-ben li{display:flex;align-items:center;gap:12px;font-size:14px;color:rgba(245,240,232,.65)}
+.pat-ben li::before{content:'';display:block;width:6px;height:6px;background:var(--vc);transform:rotate(45deg);flex-shrink:0}
+.planes-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;position:relative;z-index:1}
+.plan{background:var(--gos);border:1px solid rgba(45,140,78,.2);padding:2rem;text-align:center;transition:all .3s}
+.plan:hover{transform:translateY(-6px)}
+.plan.platino{border-color:rgba(184,190,200,.4);background:rgba(184,190,200,.04)}
+.plan.oro{border-color:rgba(255,200,50,.3);background:rgba(255,200,50,.03)}
+.plan.plata{border-color:rgba(160,165,175,.3)}
+.plan.bronce{border-color:rgba(160,110,60,.3)}
+.plan-star{font-size:36px;margin-bottom:1rem;display:block}
 .plan-nombre{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:2px;color:var(--blanco);margin-bottom:.5rem}
+.plan-badge{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(245,240,232,.3);display:block;margin-bottom:1rem}
 .plan-precio{font-family:'Bebas Neue',sans-serif;font-size:44px;line-height:1;margin-bottom:1rem}
-.plan-card.platino .plan-precio{color:var(--plata)}
-.plan-card.oro .plan-precio{color:#ffc832}
-.plan-card.plata .plan-precio{color:#a0a5af}
-.plan-card.bronce .plan-precio{color:#c07840}
-.plan-detalle{font-size:12px;line-height:1.7;color:rgba(245,240,232,.45);margin-bottom:1.5rem}
-.plan-badge{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(245,240,232,.3);display:block;margin-bottom:1.5rem}
+.plan.platino .plan-precio{color:var(--plata)}
+.plan.oro .plan-precio{color:#ffc832}
+.plan.plata .plan-precio{color:#a0a5af}
+.plan.bronce .plan-precio{color:#c07840}
+.plan-det{font-size:12px;line-height:1.7;color:rgba(245,240,232,.45);margin-bottom:1.5rem}
 
-/* DONAR */
+/* ===== DONAR ===== */
 .donar{padding:8rem 4rem;background:var(--gos);position:relative;overflow:hidden}
 .donar-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(184,190,200,.04) 0%,transparent 70%)}
 .donar-inner{position:relative;z-index:1;max-width:900px;margin:0 auto;text-align:center}
@@ -243,15 +271,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 4rem;display:flex
 .donar-div span{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(245,240,232,.2)}
 .donar-legal{font-size:11px;color:rgba(245,240,232,.2);margin-top:1.5rem;letter-spacing:1px;line-height:1.8}
 
-/* FLOAT BTN */
-.float-donar{position:fixed;bottom:2rem;right:2rem;z-index:998;display:flex;align-items:center;gap:10px;background:rgba(26,31,28,.92);border:1px solid rgba(184,190,200,.4);color:var(--blanco);text-decoration:none;padding:12px 22px 12px 16px;font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:3px;text-transform:uppercase;font-weight:700;backdrop-filter:blur(12px);clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));transition:all .3s;opacity:0;transform:translateY(20px);pointer-events:none}
-.float-donar.vis{opacity:1;transform:translateY(0);pointer-events:auto}
-.float-donar:hover{background:rgba(42,48,40,.97);border-color:rgba(184,190,200,.7);color:var(--plata-cl)}
-.float-donar.hide-d{opacity:0!important;pointer-events:none!important}
-
-/* SEGUINOS */
+/* ===== SEGUINOS ===== */
 .seguinos{position:relative;overflow:hidden;background:var(--vd);border-top:1px solid rgba(45,140,78,.3)}
-.seguinos-inner{max-width:1100px;margin:0 auto;padding:5rem 4rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.seg-inner{max-width:1100px;margin:0 auto;padding:5rem 4rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
 .soc-btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:2rem}
 .soc-btn{display:flex;align-items:center;gap:8px;padding:10px 18px;background:rgba(45,140,78,.15);border:1px solid rgba(45,140,78,.3);color:var(--blanco);text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:600;transition:background .2s}
 .soc-btn:hover{background:rgba(45,140,78,.3)}
@@ -259,10 +281,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 4rem;display:flex
 .soc-btn.yt:hover{background:rgba(220,0,0,.3)}
 .seg-photos{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .seg-photos img{width:100%;object-fit:cover;border:1px solid rgba(45,140,78,.3)}
-.seg-photos img:last-child{grid-column:span 2;aspect-ratio:16/5}
-.seg-photos img:not(:last-child){aspect-ratio:1}
+.seg-photos img:nth-child(1),.seg-photos img:nth-child(2){aspect-ratio:1}
+.seg-photos img:nth-child(3){grid-column:span 2;aspect-ratio:16/5}
 
-/* FOOTER */
+/* ===== FOOTER ===== */
 footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5rem 4rem 3rem}
 .ft{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4rem;margin-bottom:4rem}
 .fb-logo{display:flex;align-items:center;gap:14px;margin-bottom:1.5rem}
@@ -270,26 +292,32 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
 .fb-name{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;color:var(--blanco);display:block}
 .fb-sub{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--vc);display:block;margin-top:2px}
 .fb-tagline{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-size:20px;color:rgba(245,240,232,.4);margin-bottom:1.5rem;font-weight:300}
-.fb-social{display:flex;gap:10px;flex-wrap:wrap}
-.fb-soc{width:36px;height:36px;border:1px solid rgba(45,140,78,.3);display:flex;align-items:center;justify-content:center;font-size:14px;cursor:pointer;transition:all .2s;color:rgba(245,240,232,.5);text-decoration:none;border-radius:2px;font-family:'Bebas Neue',sans-serif;letter-spacing:0}
-.fb-soc:hover{border-color:var(--vc);color:var(--vmenta);background:rgba(45,140,78,.1)}
+.fb-soc{display:flex;gap:10px;flex-wrap:wrap}
+.fsoc{width:36px;height:36px;border:1px solid rgba(45,140,78,.3);display:flex;align-items:center;justify-content:center;font-size:13px;cursor:pointer;transition:all .2s;color:rgba(245,240,232,.5);text-decoration:none;border-radius:2px;font-family:'Bebas Neue',sans-serif;letter-spacing:0}
+.fsoc:hover{border-color:var(--vc);color:var(--vmenta);background:rgba(45,140,78,.1)}
 .fc-title{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--vc);margin-bottom:1.5rem;font-weight:600}
 .fc-links{list-style:none;display:flex;flex-direction:column;gap:10px}
 .fc-links a{color:rgba(245,240,232,.45);text-decoration:none;font-size:14px;transition:color .2s;display:flex;align-items:center;gap:8px}
 .fc-links a:hover{color:var(--vmenta)}
 .fc-links a::before{content:'';display:block;width:4px;height:1px;background:var(--vv);flex-shrink:0}
-.fb{border-top:1px solid rgba(45,140,78,.1);padding-top:2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.fb-bottom{border-top:1px solid rgba(45,140,78,.1);padding-top:2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
 .fb-copy{font-size:12px;color:rgba(245,240,232,.25);letter-spacing:1px}
 .fb-founded{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:3px;color:rgba(45,140,78,.5)}
 
-/* DISC PAGE OVERLAY */
+/* ===== FLOAT BTN ===== */
+.float-donar{position:fixed;bottom:2rem;right:2rem;z-index:998;display:flex;align-items:center;gap:10px;background:rgba(26,31,28,.93);border:1px solid rgba(184,190,200,.4);color:var(--blanco);text-decoration:none;padding:12px 22px 12px 16px;font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:3px;text-transform:uppercase;font-weight:700;backdrop-filter:blur(12px);clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));transition:all .3s;opacity:0;transform:translateY(20px);pointer-events:none}
+.float-donar.vis{opacity:1;transform:translateY(0);pointer-events:auto}
+.float-donar:hover{background:rgba(42,48,40,.97);border-color:rgba(184,190,200,.7);color:var(--plata-cl)}
+.float-donar.hidd{opacity:0!important;pointer-events:none!important}
+
+/* ===== DISC PAGE OVERLAY ===== */
 .disc-page{display:none;position:fixed;inset:0;z-index:2000;background:var(--negro);overflow-y:auto}
 .disc-page.active{display:block;animation:sIn .4s ease}
 @keyframes sIn{from{transform:translateX(100%);opacity:0}to{transform:translateX(0);opacity:1}}
-.dp-hero{height:55vh;min-height:400px;position:relative;display:flex;align-items:flex-end;padding:4rem;overflow:hidden}
+.dp-hero{height:55vh;min-height:380px;position:relative;display:flex;align-items:flex-end;padding:4rem;overflow:hidden}
 .dp-bg{position:absolute;inset:0;background-size:cover;background-position:center}
-.dp-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,15,10,1) 0%,rgba(8,15,10,.5) 50%,rgba(8,15,10,.2) 100%)}
-.dp-pattern{position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 49px,rgba(45,140,78,.08) 49px,rgba(45,140,78,.08) 50px),repeating-linear-gradient(90deg,transparent,transparent 49px,rgba(45,140,78,.08) 49px,rgba(45,140,78,.08) 50px)}
+.dp-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,15,10,1) 0%,rgba(8,15,10,.5) 55%,rgba(8,15,10,.15) 100%)}
+.dp-pat{position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 49px,rgba(45,140,78,.07) 49px,rgba(45,140,78,.07) 50px),repeating-linear-gradient(90deg,transparent,transparent 49px,rgba(45,140,78,.07) 49px,rgba(45,140,78,.07) 50px)}
 .dp-close{position:fixed;top:1.5rem;right:1.5rem;z-index:2001;width:44px;height:44px;background:rgba(8,15,10,.9);border:1px solid rgba(45,140,78,.4);color:var(--blanco);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;border-radius:2px}
 .dp-close:hover{background:var(--vm)}
 .dp-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,8vw,90px);line-height:.9;color:var(--blanco);position:relative;z-index:1}
@@ -300,47 +328,47 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
 .dp-photos{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:1.5rem}
 .dp-photo{aspect-ratio:1;background:var(--gom);border:1px solid rgba(45,140,78,.2);overflow:hidden}
 .dp-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
-.dp-photo:hover img{transform:scale(1.05)}
+.dp-photo:hover img{transform:scale(1.06)}
+.dp-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font-size:22px}
+.dp-placeholder span{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(245,240,232,.2)}
 .coach-card{background:var(--gos);border:1px solid rgba(45,140,78,.2);padding:2rem;position:relative}
 .coach-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--vv)}
 .coach-av{width:64px;height:64px;background:var(--vd);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--vc);margin-bottom:1rem;border:2px solid rgba(45,140,78,.3)}
-.coach-name{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:1px;color:var(--blanco);margin-bottom:4px}
+.coach-name{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--blanco);margin-bottom:4px}
 .coach-role{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--vc);margin-bottom:1rem}
 .coach-vision{font-size:14px;line-height:1.8;color:rgba(245,240,232,.55);font-style:italic}
 
-/* FADE IN */
+/* ===== FADE IN ===== */
 .fi{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
 .fi.vis{opacity:1;transform:translateY(0)}
 
-/* RESPONSIVE */
+/* ===== RESPONSIVE ===== */
 @media(max-width:1200px){nav{padding:0 2rem}.ft{grid-template-columns:1fr 1fr}}
 @media(max-width:960px){
   .nav-links{display:none}.hamburger{display:flex}
   .hero-content{padding:0 2rem 6rem}.hero-emblem{display:none}
-  .disc-grid{grid-template-columns:1fr 1fr}
-  .noticias-grid{grid-template-columns:1fr}
-  .tienda-visual{display:none}.tienda-content{max-width:100%;padding:5rem 2rem}
-  .prog-grid{grid-template-columns:1fr}
-  .ligas-grid{grid-template-columns:1fr 1fr}
+  .disc-grid{grid-template-columns:1fr 1fr}.not-grid{grid-template-columns:1fr}
+  .prog-grid3{grid-template-columns:1fr 1fr}
+  .t-vis{display:none}.t-content{max-width:100%;padding:5rem 2rem}
+  .prog-grid{grid-template-columns:1fr}.prog-grid3{grid-template-columns:1fr}.ligas-grid{grid-template-columns:1fr 1fr}
   .planes-grid{grid-template-columns:1fr 1fr}
-  .accion-grid{grid-template-columns:1fr 1fr}.acc.feat{grid-row:span 1}
-  .donar-opts{grid-template-columns:1fr 1fr}
-  .impacto-bar{grid-template-columns:1fr 1fr}
-  .ib-stat:nth-child(2){border-right:none}
-  .seguinos-inner{grid-template-columns:1fr}
-  .pat-intro{grid-template-columns:1fr}
+  .acc-grid{grid-template-columns:1fr 1fr}.acc.feat{grid-row:span 1}
+  .donar-opts{grid-template-columns:1fr 1fr}.impacto-bar{grid-template-columns:1fr 1fr}
+  .ib:nth-child(2){border-right:none}
+  .seg-inner{grid-template-columns:1fr}.pat-intro{grid-template-columns:1fr}
+  .b102-content{padding:0 2.5rem}
   .disciplinas,.noticias,.tienda,.programas,.ligas,.accion,.patrocinio,.donar{padding:5rem 2rem}
   footer{padding:4rem 2rem 2rem}
   .dp-grid{grid-template-columns:1fr}.dp-photos{grid-template-columns:repeat(3,1fr)}.dp-content{padding:2rem}
 }
 @media(max-width:600px){
   .hero-title{font-size:60px}.hero-subtitle{font-size:20px;letter-spacing:4px}
-  .disc-grid{grid-template-columns:1fr}.dc{aspect-ratio:3/2}
-  .accion-grid{grid-template-columns:1fr}.planes-grid{grid-template-columns:1fr 1fr}
-  .ligas-grid{grid-template-columns:1fr 1fr}.donar-opts{grid-template-columns:1fr 1fr}
-  .impacto-bar{grid-template-columns:1fr 1fr}
-  .ft{grid-template-columns:1fr;gap:2rem}.fb{flex-direction:column;align-items:flex-start}
+  .disc-grid{grid-template-columns:1fr}.dc.landscape,.dc.portrait{aspect-ratio:3/2}
+  .acc-grid,.planes-grid{grid-template-columns:1fr}.ligas-grid{grid-template-columns:1fr 1fr}
+  .donar-opts{grid-template-columns:1fr 1fr}.impacto-bar{grid-template-columns:1fr 1fr}
+  .ft{grid-template-columns:1fr;gap:2rem}.fb-bottom{flex-direction:column;align-items:flex-start}
   nav{padding:0 1.5rem}
+  .b102-num{font-size:80px}.b102-content{max-width:100%}
   .float-donar{bottom:1.2rem;right:1.2rem;clip-path:none;border-radius:50%;padding:14px;width:52px;height:52px;justify-content:center}
   .float-donar .float-txt{display:none}
 }
@@ -351,7 +379,7 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
 <!-- NAV -->
 <nav id="mainNav">
   <a class="nav-logo" href="#">
-    <img src="img/logo.jpg" alt="Villa Herminia" onerror="this.style.display='none'">
+    <img src="img/logo.jpg" alt="Villa Herminia">
     <div class="nav-logo-text">
       <span>Villa Herminia</span>
       <span>Sociedad de Fomento</span>
@@ -373,7 +401,7 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
 </nav>
 
 <!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
+<div class="mmenu" id="mobileMenu">
   <a href="#noticias" onclick="closeMM()">Noticias</a>
   <a href="#disciplinas" onclick="closeMM()">Disciplinas</a>
   <a href="#tienda" onclick="closeMM()">Tienda</a>
@@ -394,10 +422,10 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
     <h1 class="hero-title">Villa<br><span>Herminia</span></h1>
     <p class="hero-subtitle">Mucho más que un club</p>
     <div class="hero-stats">
-      <div class="hero-stat"><div class="hero-stat-num">102</div><div class="hero-stat-label">Años de historia</div></div>
-      <div class="hero-stat"><div class="hero-stat-num">+300</div><div class="hero-stat-label">Chicos por semana</div></div>
-      <div class="hero-stat"><div class="hero-stat-num">12+</div><div class="hero-stat-label">Disciplinas</div></div>
-      <div class="hero-stat"><div class="hero-stat-num">4</div><div class="hero-stat-label">Ligas federadas</div></div>
+      <div class="hs"><div class="hs-num">102</div><div class="hs-label">Años de historia</div></div>
+      <div class="hs"><div class="hs-num">+300</div><div class="hs-label">Chicos por semana</div></div>
+      <div class="hs"><div class="hs-num">12+</div><div class="hs-label">Disciplinas</div></div>
+      <div class="hs"><div class="hs-num">4</div><div class="hs-label">Ligas federadas</div></div>
     </div>
     <div class="hero-actions">
       <a href="#disciplinas" class="btn-p">Conocé el Club →</a>
@@ -411,70 +439,85 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
 <div class="sponsors-ticker">
   <div class="ticker-label">Sponsors Oficiales</div>
   <div class="ticker-track">
-    <div class="ticker-item"><span class="ticker-item-name">GENTECH</span></div>
-    <div class="ticker-item"><span class="ticker-item-name">GLOBALFAN</span></div>
-    <div class="ticker-item"><span class="ticker-item-name">EBENET</span></div>
-    <div class="ticker-item"><span class="ticker-item-name">RETIEL</span></div>
-    <div class="ticker-item"><span class="ticker-item-name">FUSION TEX REVESTIMIENTOS</span></div>
-    <div class="ticker-item"><span class="ticker-item-name">GENTECH</span></div>
-    <div class="ticker-item"><span class="ticker-item-name">GLOBALFAN</span></div>
-    <div class="ticker-item"><span class="ticker-item-name">EBENET</span></div>
-    <div class="ticker-item"><span class="ticker-item-name">RETIEL</span></div>
-    <div class="ticker-item"><span class="ticker-item-name">FUSION TEX REVESTIMIENTOS</span></div>
-    <div class="ticker-item"><span class="ticker-item-name">GENTECH</span></div>
-    <div class="ticker-item"><span class="ticker-item-name">GLOBALFAN</span></div>
-    <div class="ticker-item"><span class="ticker-item-name">EBENET</span></div>
-    <div class="ticker-item"><span class="ticker-item-name">RETIEL</span></div>
-    <div class="ticker-item"><span class="ticker-item-name">FUSION TEX REVESTIMIENTOS</span></div>
-    <div class="ticker-item"><span class="ticker-item-name">GENTECH</span></div>
-    <div class="ticker-item"><span class="ticker-item-name">GLOBALFAN</span></div>
-    <div class="ticker-item"><span class="ticker-item-name">EBENET</span></div>
-    <div class="ticker-item"><span class="ticker-item-name">RETIEL</span></div>
-    <div class="ticker-item"><span class="ticker-item-name">FUSION TEX REVESTIMIENTOS</span></div>
+    <div class="ticker-item"><span class="ti-name">GENTECH</span></div>
+    <div class="ticker-item"><span class="ti-name">GLOBALFAN</span></div>
+    <div class="ticker-item"><span class="ti-name">EBENET</span></div>
+    <div class="ticker-item"><span class="ti-name">RETIEL</span></div>
+    <div class="ticker-item"><span class="ti-name">FUSION TEX REVESTIMIENTOS</span></div>
+    <div class="ticker-item"><span class="ti-name">GENTECH</span></div>
+    <div class="ticker-item"><span class="ti-name">GLOBALFAN</span></div>
+    <div class="ticker-item"><span class="ti-name">EBENET</span></div>
+    <div class="ticker-item"><span class="ti-name">RETIEL</span></div>
+    <div class="ticker-item"><span class="ti-name">FUSION TEX REVESTIMIENTOS</span></div>
+    <div class="ticker-item"><span class="ti-name">GENTECH</span></div>
+    <div class="ticker-item"><span class="ti-name">GLOBALFAN</span></div>
+    <div class="ticker-item"><span class="ti-name">EBENET</span></div>
+    <div class="ticker-item"><span class="ti-name">RETIEL</span></div>
+    <div class="ticker-item"><span class="ti-name">FUSION TEX REVESTIMIENTOS</span></div>
+    <div class="ticker-item"><span class="ti-name">GENTECH</span></div>
+    <div class="ticker-item"><span class="ti-name">GLOBALFAN</span></div>
+    <div class="ticker-item"><span class="ti-name">EBENET</span></div>
+    <div class="ticker-item"><span class="ti-name">RETIEL</span></div>
+    <div class="ticker-item"><span class="ti-name">FUSION TEX REVESTIMIENTOS</span></div>
   </div>
 </div>
 
+<!-- 102 AÑOS BANNER -->
+<section class="banner-102" id="aniversario">
+  <img class="b102-foto" src="img/noticias/102anios.jpg" alt="102 años de Villa Herminia">
+  <div class="b102-overlay"></div>
+  <div class="b102-content fi">
+    <p class="b102-tag">1 de Junio de 1924 — 2026</p>
+    <div class="b102-num">1<span>0</span>2<br><span style="font-size:.45em;letter-spacing:4px;color:var(--blanco);opacity:.7">AÑOS</span></div>
+    <p class="b102-sub">de historia viva</p>
+    <p class="b102-desc">Más de un siglo construyendo comunidad, deporte y cultura en el barrio. 102 años de pasión verde que siguen creciendo cada día.</p>
+    <div class="b102-values">
+      <div class="b102-val"><div class="b102-val-icon">❤️</div><div class="b102-val-label">Historia</div></div>
+      <div class="b102-val"><div class="b102-val-icon">🤝</div><div class="b102-val-label">Comunidad</div></div>
+      <div class="b102-val"><div class="b102-val-icon">⚽</div><div class="b102-val-label">Pasión</div></div>
+      <div class="b102-val"><div class="b102-val-icon">🏠</div><div class="b102-val-label">Pertenencia</div></div>
+    </div>
+  </div>
+</section>
+
 <!-- IMPACTO BAR -->
 <div class="impacto-bar fi">
-  <div class="ib-stat"><div class="ib-num">+300</div><div class="ib-label">Chicos y chicas por semana</div></div>
-  <div class="ib-stat"><div class="ib-num">102</div><div class="ib-label">Años de historia</div></div>
-  <div class="ib-stat"><div class="ib-num">12+</div><div class="ib-label">Disciplinas y actividades</div></div>
-  <div class="ib-stat"><div class="ib-num">4</div><div class="ib-label">Ligas federadas</div></div>
+  <div class="ib"><div class="ib-num">+300</div><div class="ib-label">Chicos y chicas por semana</div></div>
+  <div class="ib"><div class="ib-num">102</div><div class="ib-label">Años de historia</div></div>
+  <div class="ib"><div class="ib-num">12+</div><div class="ib-label">Disciplinas y actividades</div></div>
+  <div class="ib"><div class="ib-num">4</div><div class="ib-label">Ligas federadas</div></div>
 </div>
 
 <!-- NOTICIAS -->
 <section class="noticias" id="noticias">
   <div style="max-width:1300px;margin:0 auto">
-    <div class="sh fi">
-      <p class="sl">Lo que está pasando</p>
-      <h2 class="st">Noticias del<br><span>Club</span></h2>
-    </div>
-    <div class="noticias-grid">
+    <div class="sh fi"><p class="sl">Lo que está pasando</p><h2 class="st">Noticias del<br><span>Club</span></h2></div>
+    <div class="not-grid">
       <a class="nc feat fi" href="#">
-        <img src="img/noticias/malvinas-2026.jpg" alt="Proyecto Mural Tapitas Malvinas Argentinas" style="aspect-ratio:16/9">
+        <img src="img/noticias/malvinas.jpg" alt="Proyecto Mural Tapitas Malvinas Argentinas">
         <div class="nc-body">
           <span class="nc-tag">Proyecto 2026</span>
           <h3 class="nc-title">Mural Tapitas — Homenaje a los Veteranos de Malvinas Argentinas</h3>
-          <p class="nc-excerpt">Villa Herminia lanza el Proyecto Mural Tapitas Malvinas Argentinas 2026: un homenaje a los veteranos y caídos en la Guerra de Malvinas. Construyendo memoria, identidad y pertenencia desde el barrio.</p>
+          <p class="nc-excerpt">Villa Herminia lanza el Proyecto Mural Tapitas Malvinas Argentinas 2026. Un homenaje a los veteranos y caídos. Construyendo memoria, identidad y pertenencia desde el barrio.</p>
           <p class="nc-meta">Jun 2026 · Proyecto institucional</p>
         </div>
       </a>
-      <a class="nc fi" href="#">
-        <img src="img/noticias/102-anios.jpg" alt="102 años de Villa Herminia" style="aspect-ratio:3/2">
-        <div class="nc-body">
-          <span class="nc-tag">Institucional</span>
-          <h3 class="nc-title">¡102 años del Club!</h3>
-          <p class="nc-excerpt">Historia, comunidad, pasión y pertenencia. Un nuevo aniversario cargado de emoción.</p>
-          <p class="nc-meta">01 Jun 2026</p>
-        </div>
-      </a>
       <a class="nc fi" href="https://www.instagram.com/sfvillaherminia" target="_blank">
-        <img src="img/noticias/redes-sociales.jpg" alt="Seguinos @sfvillaherminia" style="aspect-ratio:3/2">
+        <img src="img/noticias/redes.jpg" alt="Seguinos @sfvillaherminia">
         <div class="nc-body">
           <span class="nc-tag">Redes Sociales</span>
           <h3 class="nc-title">Seguinos en todas las plataformas</h3>
-          <p class="nc-excerpt">@sfvillaherminia en Facebook, X, Instagram, YouTube y TikTok.</p>
+          <p class="nc-excerpt">@sfvillaherminia en Facebook, X, Instagram, YouTube y TikTok. Todo el club en un solo lugar.</p>
           <p class="nc-meta">@sfvillaherminia</p>
+        </div>
+      </a>
+      <a class="nc fi" href="#">
+        <img src="img/noticias/masque.jpg" alt="Mucho más que un club de barrio">
+        <div class="nc-body">
+          <span class="nc-tag">Institucional</span>
+          <h3 class="nc-title">"Mucho más que un club de barrio"</h3>
+          <p class="nc-excerpt">102 años construyendo comunidad, deporte y cultura. Villa Herminia es el corazón del barrio.</p>
+          <p class="nc-meta">1924 — 2026</p>
         </div>
       </a>
     </div>
@@ -485,18 +528,15 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
 <!-- DISCIPLINAS -->
 <section class="disciplinas" id="disciplinas">
   <div style="max-width:1300px;margin:0 auto">
-    <div class="sh fi">
-      <p class="sl">Deportes &amp; Actividades</p>
-      <h2 class="st">Nuestras<br><span>Disciplinas</span></h2>
-    </div>
+    <div class="sh fi"><p class="sl">Deportes &amp; Actividades</p><h2 class="st">Nuestras<br><span>Disciplinas</span></h2></div>
     <div class="disc-grid">
 
-      <div class="dc fi" onclick="openDisc('voley-f')">
-        <div class="dc-bg" style="background-image:url('img/disciplinas/voley-f-1.jpg')"></div>
-        <div class="dc-overlay"></div><div class="dc-hover"></div>
+      <!-- VOLEY FEMENINO — landscape team shot -->
+      <div class="dc landscape fi" onclick="openDisc('voley-f')">
+        <div class="dc-bg" style="background-image:url('img/disciplinas/voley/foto1.jpg')"></div>
+        <div class="dc-ov"></div><div class="dc-hov"></div>
         <div class="dc-num">01</div>
         <div class="dc-content">
-          <span class="dc-icon">🏐</span>
           <div class="dc-tag">Federado · UNILIVO</div>
           <div class="dc-name">Vóley Femenino</div>
           <p class="dc-desc">Mayores, juveniles e infantiles. Competencia federada de alto nivel.</p>
@@ -504,38 +544,25 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
         </div>
       </div>
 
-      <div class="dc fi" onclick="openDisc('voley-m')">
-        <div class="dc-bg" style="background-image:url('img/disciplinas/voley-m-1.jpg')"></div>
-        <div class="dc-overlay"></div><div class="dc-hover"></div>
+      <!-- BABY FUTBOL — portrait (kids posing tall) -->
+      <div class="dc portrait fi" onclick="openDisc('baby')">
+        <div class="dc-bg" style="background-image:url('img/disciplinas/baby/foto1.jpg');background-position:top center"></div>
+        <div class="dc-ov"></div><div class="dc-hov"></div>
         <div class="dc-num">02</div>
         <div class="dc-content">
-          <span class="dc-icon">🏐</span>
-          <div class="dc-tag">Federado · UNILIVO</div>
-          <div class="dc-name">Vóley Masculino</div>
-          <p class="dc-desc">Todas las categorías. Formación y competencia en ligas locales.</p>
-          <div class="dc-link">Ver disciplina →</div>
-        </div>
-      </div>
-
-      <div class="dc fi" onclick="openDisc('baby')">
-        <div class="dc-bg" style="background-image:url('img/disciplinas/baby-futbol-1.jpg')"></div>
-        <div class="dc-overlay"></div><div class="dc-hover"></div>
-        <div class="dc-num">03</div>
-        <div class="dc-content">
-          <span class="dc-icon">⚽</span>
           <div class="dc-tag">Liga FEFI</div>
           <div class="dc-name">Baby Fútbol</div>
-          <p class="dc-desc">Jardín fútbol y baby fútbol para los más chicos del barrio.</p>
+          <p class="dc-desc">Jardín fútbol y baby fútbol. Los más chicos del barrio en cancha.</p>
           <div class="dc-link">Ver disciplina →</div>
         </div>
       </div>
 
-      <div class="dc fi" onclick="openDisc('futsal')">
-        <div class="dc-bg" style="background-image:url('img/disciplinas/futsal-general.jpg')"></div>
-        <div class="dc-overlay"></div><div class="dc-hover"></div>
-        <div class="dc-num">04</div>
+      <!-- FUTSAL — portrait (tunnel shot is vertical) -->
+      <div class="dc portrait fi" onclick="openDisc('futsal')">
+        <div class="dc-bg" style="background-image:url('img/disciplinas/futsal/foto1.jpg');background-position:center center"></div>
+        <div class="dc-ov"></div><div class="dc-hov"></div>
+        <div class="dc-num">03</div>
         <div class="dc-content">
-          <span class="dc-icon">🥅</span>
           <div class="dc-tag">LAAMBA · BAFI</div>
           <div class="dc-name">Futsal</div>
           <p class="dc-desc">Masculino, femenino, senior y master. Torneos nacionales.</p>
@@ -543,28 +570,41 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
         </div>
       </div>
 
-      <div class="dc fi" onclick="openDisc('taekwondo')">
-        <div class="dc-bg" style="background-image:url('img/disciplinas/taekwondo.jpg')"></div>
-        <div class="dc-overlay"></div><div class="dc-hover"></div>
-        <div class="dc-num">05</div>
+      <!-- TAEKWONDO — landscape (wide gym shot) -->
+      <div class="dc landscape fi" onclick="openDisc('taekwondo')">
+        <div class="dc-bg" style="background-image:url('img/disciplinas/taekwondo/foto1.jpg')"></div>
+        <div class="dc-ov"></div><div class="dc-hov"></div>
+        <div class="dc-num">04</div>
         <div class="dc-content">
-          <span class="dc-icon">🥋</span>
           <div class="dc-tag">Arte Marcial</div>
           <div class="dc-name">Taekwondo</div>
-          <p class="dc-desc">Arte marcial olímpico para niños, jóvenes y adultos. Centro de entrenamiento.</p>
+          <p class="dc-desc">Arte marcial olímpico para niños, jóvenes y adultos.</p>
           <div class="dc-link">Ver disciplina →</div>
         </div>
       </div>
 
-      <div class="dc fi" onclick="openDisc('bienestar')">
-        <div class="dc-bg" style="background:linear-gradient(135deg,#0f3a1a,#060f08)"></div>
-        <div class="dc-overlay"></div><div class="dc-hover"></div>
+      <!-- VOLEY MASCULINO — portrait (vertical team photo) -->
+      <div class="dc portrait fi" onclick="openDisc('voley-m')">
+        <div class="dc-bg" style="background-image:url('img/disciplinas/voley/foto4.jpg');background-position:top center"></div>
+        <div class="dc-ov"></div><div class="dc-hov"></div>
+        <div class="dc-num">05</div>
+        <div class="dc-content">
+          <div class="dc-tag">Federado · UNILIVO</div>
+          <div class="dc-name">Vóley Masculino</div>
+          <p class="dc-desc">Todas las categorías. Formación y competencia local.</p>
+          <div class="dc-link">Ver disciplina →</div>
+        </div>
+      </div>
+
+      <!-- ZUMBA / BOXEO / FUNCIONAL — landscape (no photo, keep green gradient) -->
+      <div class="dc landscape fi" onclick="openDisc('bienestar')">
+        <div class="dc-bg" style="background:linear-gradient(135deg,#0f3a1a 0%,#060f08 100%)"></div>
+        <div class="dc-ov"></div><div class="dc-hov"></div>
         <div class="dc-num">06</div>
         <div class="dc-content">
-          <span class="dc-icon">💪</span>
           <div class="dc-tag">Centro de Entrenamiento</div>
           <div class="dc-name">Zumba · Boxeo · Funcional</div>
-          <p class="dc-desc">Zumba, boxeo y entrenamiento funcional. Bienestar para todos.</p>
+          <p class="dc-desc">Fitness, artes marciales y bienestar para toda la familia.</p>
           <div class="dc-link">Ver más →</div>
         </div>
       </div>
@@ -575,9 +615,9 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
 
 <!-- TIENDA -->
 <section class="tienda" id="tienda">
-  <div class="tienda-bg-pattern"></div>
-  <div class="tienda-visual">
-    <div class="tienda-visual-bg"></div>
+  <div class="t-pat"></div>
+  <div class="t-vis">
+    <div class="t-vis-bg"></div>
     <div class="jersey-wrap">
       <div class="jersey">
         <div class="jersey-stripes"></div>
@@ -585,13 +625,11 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
       </div>
     </div>
   </div>
-  <div class="tienda-content fi">
+  <div class="t-content fi">
     <p class="sl">Tienda Oficial</p>
     <h2 class="st">Vestite<br><span>de Verde</span></h2>
-    <p style="font-size:15px;line-height:1.9;color:rgba(245,240,232,.55);margin:1.5rem 0;max-width:420px">
-      Remeras, buzos y accesorios oficiales del club. Llevá los colores de Villa Herminia con orgullo a todos lados.
-    </p>
-    <ul class="prod-feat">
+    <p style="font-size:15px;line-height:1.9;color:rgba(245,240,232,.55);margin:1.5rem 0;max-width:420px">Remeras, buzos y accesorios oficiales. Llevá los colores de Villa Herminia con orgullo.</p>
+    <ul class="pf">
       <li>Indumentaria oficial 2026</li>
       <li>Telas premium, estampado de calidad</li>
       <li>Modelos para hombre, mujer y niños</li>
@@ -602,55 +640,66 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
       <a href="https://www.mercadolibre.com.ar" target="_blank" rel="noopener" class="btn-p">Ver en Mercado Libre →</a>
       <a href="#" class="btn-o">Consultas</a>
     </div>
-    <p style="margin-top:1.5rem;font-size:12px;color:rgba(245,240,232,.25);letter-spacing:1px">También disponible en el club · Croacia 2843, 3 de Febrero</p>
+    <p style="margin-top:1.5rem;font-size:12px;color:rgba(245,240,232,.25);letter-spacing:1px">También en el club · Croacia 2843, 3 de Febrero</p>
   </div>
 </section>
 
 <!-- PROGRAMAS YOUTUBE -->
 <section class="programas" id="programas">
-  <div class="prog-bg-txt">YT</div>
+  <div class="prog-bgt">YT</div>
   <div style="max-width:1200px;margin:0 auto">
-    <div class="sh fi">
-      <p class="sl">Contenido Digital</p>
-      <h2 class="st">Nuestros<br><span>Programas</span></h2>
-    </div>
-    <div class="prog-grid">
-      <div class="prog-card fi">
-        <div class="prog-thumb">
-          <div class="prog-thumb-bg"></div>
-          <div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:16px">
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:52px;letter-spacing:5px;color:var(--vc);text-align:center;line-height:1">NOTI<br>VERDE</div>
-            <div class="yt-play"></div>
-          </div>
-          <div class="prog-yt-logo">YouTube</div>
+    <div class="sh fi"><p class="sl">Contenido Digital</p><h2 class="st">Nuestro<br><span>Canal</span></h2></div>
+    <div class="prog-grid3 fi">
+
+      <!-- VIDEO 1 -->
+      <a class="prog-card3" href="https://www.youtube.com/watch?v=F7IjS_U7RyU" target="_blank" rel="noopener">
+        <div class="prog-thumb3">
+          <img src="https://img.youtube.com/vi/F7IjS_U7RyU/maxresdefault.jpg"
+               onerror="this.src='https://img.youtube.com/vi/F7IjS_U7RyU/hqdefault.jpg'"
+               alt="Video Villa Herminia" loading="lazy">
+          <div class="prog-play-overlay"><div class="yt-play"></div></div>
         </div>
-        <div class="prog-body">
-          <span class="prog-live"><span class="prog-live-dot"></span>En el Canal</span>
-          <div class="prog-name">Noti Verde</div>
-          <p class="prog-desc">El noticiero del club. Toda la información de Villa Herminia: deportes, acción social, eventos y la voz de la comunidad. Nuevos episodios cada semana.</p>
-          <a href="https://www.youtube.com/@masqueunclubmasqueunclub" target="_blank" rel="noopener" class="yt-cta">▶ Ver en YouTube</a>
+        <div class="prog-body3">
+          <span class="prog-live"><span class="prog-dot"></span>YouTube</span>
+          <div class="prog-name" style="font-size:20px">Noti Verde</div>
+          <p class="prog-desc3">Seguí el contenido del club en nuestro canal oficial.</p>
         </div>
-      </div>
-      <div class="prog-card fi">
-        <div class="prog-thumb">
-          <div class="prog-thumb-bg"></div>
-          <div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:16px">
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;letter-spacing:3px;color:rgba(245,240,232,.5);text-align:center;line-height:1.1">PRÓXIMO<br>PROGRAMA</div>
-            <div style="font-size:48px">📡</div>
-          </div>
-          <div class="prog-yt-logo">YouTube</div>
+      </a>
+
+      <!-- VIDEO 2 -->
+      <a class="prog-card3" href="https://www.youtube.com/watch?v=peVqp0HcrAg" target="_blank" rel="noopener">
+        <div class="prog-thumb3">
+          <img src="https://img.youtube.com/vi/peVqp0HcrAg/maxresdefault.jpg"
+               onerror="this.src='https://img.youtube.com/vi/peVqp0HcrAg/hqdefault.jpg'"
+               alt="Video Villa Herminia" loading="lazy">
+          <div class="prog-play-overlay"><div class="yt-play"></div></div>
         </div>
-        <div class="prog-body">
-          <span class="prog-soon">⏳ Próximamente</span>
-          <div class="prog-name">Segundo Programa</div>
-          <p class="prog-desc">Nuevo espacio en preparación. Más contenido, más historias, más Villa Herminia. Suscribite para ser el primero en enterarte.</p>
-          <a href="https://www.youtube.com/@masqueunclubmasqueunclub" target="_blank" rel="noopener" class="btn-o" style="font-size:11px;padding:10px 20px">🔔 Suscribirse al canal →</a>
+        <div class="prog-body3">
+          <span class="prog-live"><span class="prog-dot"></span>YouTube</span>
+          <div class="prog-name" style="font-size:20px">Canal Oficial</div>
+          <p class="prog-desc3">Transmisiones en vivo, partidos y eventos del club.</p>
         </div>
-      </div>
+      </a>
+
+      <!-- VIDEO 3 -->
+      <a class="prog-card3" href="https://www.youtube.com/watch?v=za6MqAhuIgk" target="_blank" rel="noopener">
+        <div class="prog-thumb3">
+          <img src="https://img.youtube.com/vi/za6MqAhuIgk/maxresdefault.jpg"
+               onerror="this.src='https://img.youtube.com/vi/za6MqAhuIgk/hqdefault.jpg'"
+               alt="Video Villa Herminia" loading="lazy">
+          <div class="prog-play-overlay"><div class="yt-play"></div></div>
+        </div>
+        <div class="prog-body3">
+          <span class="prog-soon">▶ Último video</span>
+          <div class="prog-name" style="font-size:20px">Más que un Club</div>
+          <p class="prog-desc3">Historias, deportes y comunidad desde el barrio.</p>
+        </div>
+      </a>
+
     </div>
     <div class="canal-cta fi">
-      <p>Seguí todo el contenido del club en nuestro canal de YouTube. Programas, transmisiones en vivo de partidos, eventos y mucho más.</p>
-      <a href="https://www.youtube.com/@masqueunclubmasqueunclub" target="_blank" rel="noopener" class="yt-cta" style="display:inline-flex">▶ Ir al Canal Oficial de Villa Herminia</a>
+      <p>Suscribite al canal para no perderte ningún contenido. Partidos en vivo, programas y todo lo que pasa en Villa Herminia.</p>
+      <a href="https://www.youtube.com/@masqueunclubmasqueunclub" target="_blank" rel="noopener" class="yt-cta" style="display:inline-flex">▶ Ver todos los videos en YouTube</a>
     </div>
   </div>
 </section>
@@ -658,31 +707,12 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
 <!-- LIGAS -->
 <section class="ligas" id="ligas">
   <div style="max-width:1300px;margin:0 auto">
-    <div class="sh fi">
-      <p class="sl">Competencia</p>
-      <h2 class="st">Ligas donde<br><span>Competimos</span></h2>
-    </div>
+    <div class="sh fi"><p class="sl">Competencia</p><h2 class="st">Ligas donde<br><span>Competimos</span></h2></div>
     <div class="ligas-grid">
-      <div class="liga-card fi">
-        <div class="liga-sigla">LAAMBA</div>
-        <div class="liga-nombre">Liga Argentina de Futsal AMBA — más de 300 clubes afiliados a AFA. Torneos nacionales e internacionales.</div>
-        <span class="liga-deporte">⚽ Futsal M/F</span>
-      </div>
-      <div class="liga-card fi">
-        <div class="liga-sigla">FEFI</div>
-        <div class="liga-nombre">La mayor liga de baby fútbol de Argentina. +30.000 jugadores y 400 clubes. Creada en 1993.</div>
-        <span class="liga-deporte">⚽ Baby Fútbol</span>
-      </div>
-      <div class="liga-card fi">
-        <div class="liga-sigla">BAFI</div>
-        <div class="liga-nombre">Buenos Aires Fútbol Infantil. Liga de futsal con categorías desde infantiles hasta veteranos.</div>
-        <span class="liga-deporte">🥅 Futsal</span>
-      </div>
-      <div class="liga-card fi">
-        <div class="liga-sigla">UNILIVO</div>
-        <div class="liga-nombre">Unión de Ligas de Vóley. Torneos anuales Apertura y Clausura en CABA y GBA.</div>
-        <span class="liga-deporte">🏐 Vóley M/F</span>
-      </div>
+      <div class="liga-card fi"><div class="liga-sigla">LAAMBA</div><div class="liga-nombre">Liga Argentina de Futsal AMBA — +300 clubes, torneos nacionales e internacionales.</div><span class="liga-dep">⚽ Futsal M/F</span></div>
+      <div class="liga-card fi"><div class="liga-sigla">FEFI</div><div class="liga-nombre">Mayor liga de baby fútbol de Argentina. +30.000 jugadores y 400 clubes desde 1993.</div><span class="liga-dep">⚽ Baby Fútbol</span></div>
+      <div class="liga-card fi"><div class="liga-sigla">BAFI</div><div class="liga-nombre">Buenos Aires Fútbol Infantil. Desde categorías infantiles hasta veteranos y femenino.</div><span class="liga-dep">🥅 Futsal</span></div>
+      <div class="liga-card fi"><div class="liga-sigla">UNILIVO</div><div class="liga-nombre">Unión de Ligas de Vóley CABA y GBA. Torneos Apertura y Clausura anuales.</div><span class="liga-dep">🏐 Vóley M/F</span></div>
     </div>
   </div>
 </section>
@@ -690,131 +720,63 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
 <!-- ACCION SOCIAL -->
 <section class="accion" id="social">
   <div style="max-width:1300px;margin:0 auto">
-    <div class="sh fi">
-      <p class="sl">Comunidad</p>
-      <h2 class="st">Acción<br><span>Social</span></h2>
-    </div>
-    <div class="accion-grid">
+    <div class="sh fi"><p class="sl">Comunidad</p><h2 class="st">Acción<br><span>Social</span></h2></div>
+    <div class="acc-grid">
       <div class="acc feat fi">
         <span class="acc-icon">📚</span>
         <div class="acc-title">Ayuda Escolar</div>
-        <p class="acc-desc">Apoyo pedagógico gratuito para niños y adolescentes del barrio. Profesores voluntarios que acompañan el aprendizaje desde primaria hasta el secundario.</p>
+        <p class="acc-desc">Apoyo pedagógico gratuito para niños y adolescentes del barrio. Profesores voluntarios desde primaria hasta el secundario.</p>
         <div class="acc-num">+150</div>
         <div class="acc-num-l">Alumnos acompañados</div>
-        <br>
-        <a href="#" class="dc-link" style="margin-top:1.5rem;display:flex">Sumarte como voluntario →</a>
+        <br><a href="#" style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--vc);display:inline-flex;align-items:center;gap:8px;font-weight:600;text-decoration:none;margin-top:1.5rem">Sumarte como voluntario →</a>
       </div>
-      <div class="acc fi">
-        <span class="acc-icon">✂️</span>
-        <div class="acc-title">Cortes de Pelo</div>
-        <p class="acc-desc">Servicio gratuito de corte de pelo para la comunidad. Peluqueros solidarios cada semana en el club.</p>
-      </div>
-      <div class="acc fi">
-        <span class="acc-icon">🎓</span>
-        <div class="acc-title">Cursos</div>
-        <p class="acc-desc">Talleres de oficios, informática, idiomas y más. Aprendizaje gratuito o de bajo costo para vecinos.</p>
-      </div>
-      <div class="acc fi">
-        <span class="acc-icon">🍽️</span>
-        <div class="acc-title">Merienda</div>
-        <p class="acc-desc">Merienda y almuerzo diarios para los chicos que participan en las actividades del club.</p>
-      </div>
-      <div class="acc fi">
-        <span class="acc-icon">🎭</span>
-        <div class="acc-title">Centro Cultural</div>
-        <p class="acc-desc">Actividades artísticas, espacios educativos y proyectos comunitarios para todas las edades.</p>
-      </div>
+      <div class="acc fi"><span class="acc-icon">✂️</span><div class="acc-title">Cortes de Pelo</div><p class="acc-desc">Servicio gratuito de corte de pelo para la comunidad. Peluqueros solidarios cada semana.</p></div>
+      <div class="acc fi"><span class="acc-icon">🎓</span><div class="acc-title">Cursos</div><p class="acc-desc">Talleres de oficios, informática, idiomas y más. Aprendizaje gratuito o de bajo costo.</p></div>
+      <div class="acc fi"><span class="acc-icon">🍽️</span><div class="acc-title">Merienda</div><p class="acc-desc">Merienda y almuerzo diarios para los chicos que participan en las actividades del club.</p></div>
+      <div class="acc fi"><span class="acc-icon">🎭</span><div class="acc-title">Centro Cultural</div><p class="acc-desc">Actividades artísticas, espacios educativos y proyectos comunitarios para todas las edades.</p></div>
     </div>
   </div>
 </section>
 
-<!-- PATROCINIO / SPONSORS -->
+<!-- PATROCINIO -->
 <section class="patrocinio" id="patrocinio">
   <div class="pat-bg"></div>
-  <div style="max-width:1200px;margin:0 auto" class="pat-inner">
-    <div class="sh fi">
-      <p class="sl">Propuesta Comercial 2026</p>
-      <h2 class="st">Ser<br><span>Sponsor</span></h2>
-    </div>
-
+  <div style="max-width:1200px;margin:0 auto;position:relative;z-index:1">
+    <div class="sh fi"><p class="sl">Propuesta Comercial 2026</p><h2 class="st">Ser<br><span>Sponsor</span></h2></div>
     <div class="pat-intro fi">
       <div>
-        <p class="sl">¿Quiénes somos?</p>
-        <p style="font-size:15px;line-height:1.9;color:rgba(245,240,232,.6);margin-bottom:1.5rem">
-          La Sociedad de Fomento Villa Herminia, fundada el 1° de Junio de 1924, es hoy un club de barrio comprometido con el desarrollo social, deportivo y cultural de nuestra comunidad. Trabajamos día a día brindando un espacio de contención, inclusión y crecimiento para más de 300 niños, jóvenes y familias del barrio.
-        </p>
-        <p style="font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px;color:var(--vc);margin-bottom:1rem">Tu logo llega a:</p>
-        <ul class="pat-benefits">
+        <p class="sl">¿Por qué sponsorear Villa Herminia?</p>
+        <p style="font-size:15px;line-height:1.9;color:rgba(245,240,232,.6);margin-bottom:1.5rem">Más de 300 chicos y chicas pasan por el club cada semana. Tu marca llega a familias reales, en un espacio de comunidad activo y comprometido con el barrio.</p>
+        <ul class="pat-ben">
           <li>Publicidad en redes sociales (@sfvillaherminia)</li>
-          <li>Presencia en nuestro programa de streaming YouTube</li>
+          <li>Presencia en el programa de streaming YouTube</li>
           <li>Banners físicos dentro del club</li>
           <li>Logo en indumentaria deportiva (plan Platino)</li>
           <li>Presencia en eventos, torneos y actividades</li>
-          <li>Difusión en actividades culturales y comunitarias</li>
+          <li>Difusión en actividades culturales comunitarias</li>
         </ul>
       </div>
       <div style="background:var(--gos);border:1px solid rgba(45,140,78,.2);padding:2.5rem;position:relative">
         <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--vc),transparent)"></div>
-        <p class="sl" style="margin-bottom:1.5rem">Impacto en números</p>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem">
-          <div style="text-align:center;padding:1rem;background:rgba(45,140,78,.08);border:1px solid rgba(45,140,78,.15)">
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:44px;color:var(--vc);line-height:1">+300</div>
-            <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(245,240,232,.4)">Chicos por semana</div>
-          </div>
-          <div style="text-align:center;padding:1rem;background:rgba(45,140,78,.08);border:1px solid rgba(45,140,78,.15)">
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:44px;color:var(--vc);line-height:1">4</div>
-            <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(245,240,232,.4)">Ligas federadas</div>
-          </div>
-          <div style="text-align:center;padding:1rem;background:rgba(45,140,78,.08);border:1px solid rgba(45,140,78,.15)">
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:44px;color:var(--vc);line-height:1">102</div>
-            <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(245,240,232,.4)">Años de historia</div>
-          </div>
-          <div style="text-align:center;padding:1rem;background:rgba(45,140,78,.08);border:1px solid rgba(45,140,78,.15)">
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:44px;color:var(--vc);line-height:1">12+</div>
-            <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(245,240,232,.4)">Disciplinas</div>
-          </div>
+        <p class="sl" style="margin-bottom:1.5rem">Alcance real</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+          <div style="text-align:center;padding:1rem;background:rgba(45,140,78,.08);border:1px solid rgba(45,140,78,.15)"><div style="font-family:'Bebas Neue',sans-serif;font-size:42px;color:var(--vc);line-height:1">+300</div><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(245,240,232,.4)">Chicos por semana</div></div>
+          <div style="text-align:center;padding:1rem;background:rgba(45,140,78,.08);border:1px solid rgba(45,140,78,.15)"><div style="font-family:'Bebas Neue',sans-serif;font-size:42px;color:var(--vc);line-height:1">4</div><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(245,240,232,.4)">Ligas federadas</div></div>
+          <div style="text-align:center;padding:1rem;background:rgba(45,140,78,.08);border:1px solid rgba(45,140,78,.15)"><div style="font-family:'Bebas Neue',sans-serif;font-size:42px;color:var(--vc);line-height:1">102</div><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(245,240,232,.4)">Años de historia</div></div>
+          <div style="text-align:center;padding:1rem;background:rgba(45,140,78,.08);border:1px solid rgba(45,140,78,.15)"><div style="font-family:'Bebas Neue',sans-serif;font-size:42px;color:var(--vc);line-height:1">12+</div><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(245,240,232,.4)">Disciplinas</div></div>
         </div>
       </div>
     </div>
-
-    <p style="font-family:'Bebas Neue',sans-serif;font-size:36px;letter-spacing:3px;color:var(--blanco);margin-bottom:.5rem">Planes 2026</p>
-    <p style="font-size:13px;color:rgba(245,240,232,.4);margin-bottom:2rem;letter-spacing:1px">Elegí el plan que mejor se adapta a tu empresa</p>
+    <p style="font-family:'Bebas Neue',sans-serif;font-size:36px;letter-spacing:3px;color:var(--blanco);margin-bottom:.5rem;position:relative;z-index:1">Planes 2026</p>
+    <p style="font-size:13px;color:rgba(245,240,232,.4);margin-bottom:2rem;position:relative;z-index:1">Elegí el plan que mejor se adapta a tu empresa</p>
     <div class="planes-grid fi">
-      <div class="plan-card bronce">
-        <span class="plan-estrella">🥉</span>
-        <div class="plan-nombre">Bronce</div>
-        <span class="plan-badge">Mensual</span>
-        <div class="plan-precio">$50.000</div>
-        <div class="plan-detalle">Menciones en redes sociales. Ideal para empezar a ganar visibilidad en la comunidad.</div>
-        <a href="#" class="btn-o" style="padding:10px 20px;font-size:11px;width:100%;justify-content:center">Contactar</a>
-      </div>
-      <div class="plan-card plata">
-        <span class="plan-estrella">🥈</span>
-        <div class="plan-nombre">Plata</div>
-        <span class="plan-badge">Mensual</span>
-        <div class="plan-precio">$100.000</div>
-        <div class="plan-detalle">Redes sociales + banner físico dentro del club. Presencia permanente en el club.</div>
-        <a href="#" class="btn-o" style="padding:10px 20px;font-size:11px;width:100%;justify-content:center">Contactar</a>
-      </div>
-      <div class="plan-card oro">
-        <span class="plan-estrella">🥇</span>
-        <div class="plan-nombre">Oro</div>
-        <span class="plan-badge">Mensual</span>
-        <div class="plan-precio">$150.000</div>
-        <div class="plan-detalle">Redes + banner + presencia en programa de streaming YouTube + presencia destacada en eventos.</div>
-        <a href="#" class="btn-o" style="padding:10px 20px;font-size:11px;width:100%;justify-content:center">Contactar</a>
-      </div>
-      <div class="plan-card platino">
-        <span class="plan-estrella">💎</span>
-        <div class="plan-nombre">Platino</div>
-        <span class="plan-badge">Pago único</span>
-        <div class="plan-precio">$250.000</div>
-        <div class="plan-detalle">El logo de tu empresa estampado en nuestra indumentaria oficial de juego. Máxima visibilidad.</div>
-        <a href="#" class="btn-d" style="padding:10px 20px;font-size:11px;width:100%;justify-content:center;clip-path:none">Contactar</a>
-      </div>
+      <div class="plan bronce"><span class="plan-star">🥉</span><div class="plan-nombre">Bronce</div><span class="plan-badge">Mensual</span><div class="plan-precio">$50.000</div><div class="plan-det">Menciones en redes sociales. Visibilidad en la comunidad digital del club.</div><a href="#" class="btn-o" style="padding:10px 20px;font-size:11px;width:100%;justify-content:center">Contactar</a></div>
+      <div class="plan plata"><span class="plan-star">🥈</span><div class="plan-nombre">Plata</div><span class="plan-badge">Mensual</span><div class="plan-precio">$100.000</div><div class="plan-det">Redes sociales + banner físico dentro del club. Presencia permanente.</div><a href="#" class="btn-o" style="padding:10px 20px;font-size:11px;width:100%;justify-content:center">Contactar</a></div>
+      <div class="plan oro"><span class="plan-star">🥇</span><div class="plan-nombre">Oro</div><span class="plan-badge">Mensual</span><div class="plan-precio">$150.000</div><div class="plan-det">Redes + banner + presencia en programa YouTube + destacada en eventos.</div><a href="#" class="btn-o" style="padding:10px 20px;font-size:11px;width:100%;justify-content:center">Contactar</a></div>
+      <div class="plan platino"><span class="plan-star">💎</span><div class="plan-nombre">Platino</div><span class="plan-badge">Pago único</span><div class="plan-precio">$250.000</div><div class="plan-det">Logo de tu empresa en la indumentaria oficial de juego. Máxima visibilidad.</div><a href="#" class="btn-d" style="padding:10px 20px;font-size:11px;width:100%;justify-content:center;clip-path:none">Contactar</a></div>
     </div>
-    <div style="text-align:center;margin-top:2.5rem">
-      <a href="Sin_título__A4__20260512_222206_0000.pdf" download class="btn-o">📄 Descargar propuesta completa en PDF →</a>
+    <div style="text-align:center;margin-top:2.5rem;position:relative;z-index:1">
+      <a href="propuesta-patrocinio.pdf" download class="btn-o">📄 Descargar propuesta completa en PDF →</a>
     </div>
   </div>
 </section>
@@ -824,13 +786,13 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
   <div class="donar-bg"></div>
   <div class="donar-inner fi">
     <span class="donar-icon">💚</span>
-    <h2 class="donar-title">Colaborá con<br>el Club</h2>
+    <h2 class="donar-title">Colaborá con el Club</h2>
     <p class="donar-sub">Sociedad de Fomento · Sin fines de lucro</p>
-    <p class="donar-txt">Villa Herminia es una sociedad de fomento que vive gracias al apoyo de su comunidad. Tu colaboración hace posible el deporte, la educación y la acción social en el barrio. Cada peso suma.</p>
+    <p class="donar-txt">Villa Herminia vive gracias al apoyo de su comunidad. Tu colaboración hace posible el deporte, la educación y la acción social en el barrio. Cada peso suma.</p>
     <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(184,190,200,.5);margin-bottom:1.5rem">Elegí el monto que quieras</p>
     <div class="donar-opts">
       <div class="dm" onclick="selMonto(this)"><div class="dm-num">$500</div><div class="dm-label">Un gesto</div></div>
-      <div class="dm active" onclick="selMonto(this)"><div class="dm-num">$1.000</div><div class="dm-label">Lo más popular</div></div>
+      <div class="dm active" onclick="selMonto(this)"><div class="dm-num">$1.000</div><div class="dm-label">Popular</div></div>
       <div class="dm" onclick="selMonto(this)"><div class="dm-num">$2.500</div><div class="dm-label">Gran apoyo</div></div>
       <div class="dm" onclick="selMonto(this)"><div class="dm-num">Otro</div><div class="dm-label">Elegís vos</div></div>
     </div>
@@ -841,22 +803,20 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
     <div class="donar-div"><span>También podés colaborar</span></div>
     <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem">
       <a href="#tienda" class="btn-o" style="padding:10px 24px;font-size:11px">🛒 Comprando en la tienda</a>
-      <a href="#" class="btn-o" style="padding:10px 24px;font-size:11px">👕 Siendo socio del club</a>
+      <a href="#" class="btn-o" style="padding:10px 24px;font-size:11px">👕 Siendo socio</a>
       <a href="#" class="btn-o" style="padding:10px 24px;font-size:11px">🤝 Como voluntario</a>
     </div>
-    <p class="donar-legal">Villa Herminia — Sociedad de Fomento sin fines de lucro · Croacia 2843, 3 de Febrero, GBA<br>Las donaciones pueden ser deducibles según la normativa vigente · Recibís comprobante por email</p>
+    <p class="donar-legal">Villa Herminia — Sociedad de Fomento sin fines de lucro · Croacia 2843, 3 de Febrero, GBA<br>Las donaciones pueden ser deducibles según normativa vigente · Recibís comprobante por email</p>
   </div>
 </section>
 
 <!-- SEGUINOS -->
 <section class="seguinos">
-  <div class="seguinos-inner">
+  <div class="seg-inner">
     <div>
       <p class="sl">Redes Sociales</p>
-      <h2 class="st" style="font-size:clamp(40px,5vw,68px)">Seguinos<br><span>@sfvillaherminia</span></h2>
-      <p style="font-size:15px;line-height:1.9;color:rgba(245,240,232,.55);margin:1.5rem 0 0">
-        Toda la información del club en tiempo real. Partidos, noticias, eventos y el día a día de Villa Herminia.
-      </p>
+      <h2 class="st" style="font-size:clamp(38px,5vw,66px)">Seguinos<br><span>@sfvillaherminia</span></h2>
+      <p style="font-size:15px;line-height:1.9;color:rgba(245,240,232,.55);margin:1.5rem 0 0">Toda la info del club en tiempo real. Partidos, noticias, eventos y el día a día de Villa Herminia.</p>
       <div class="soc-btns">
         <a href="https://www.facebook.com/sfvillaherminia" target="_blank" rel="noopener" class="soc-btn">Facebook</a>
         <a href="https://x.com/jvillaherminia" target="_blank" rel="noopener" class="soc-btn">X / Twitter</a>
@@ -867,8 +827,8 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
     </div>
     <div class="seg-photos">
       <img src="img/noticias/masque.jpg" alt="Mucho más que un club">
-      <img src="img/noticias/redes-sociales.jpg" alt="Seguinos en redes">
-      <img src="img/noticias/102-anios.jpg" alt="102 años">
+      <img src="img/noticias/redes.jpg" alt="Seguinos en redes">
+      <img src="img/noticias/102anios.jpg" alt="102 años">
     </div>
   </div>
 </section>
@@ -877,17 +837,14 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
 <footer>
   <div class="ft">
     <div>
-      <div class="fb-logo">
-        <img src="img/logo.jpg" alt="Logo Villa Herminia">
-        <div><span class="fb-name">Villa Herminia</span><span class="fb-sub">Sociedad de Fomento · Est. 1924</span></div>
-      </div>
+      <div class="fb-logo"><img src="img/logo.jpg" alt="Logo"><div><span class="fb-name">Villa Herminia</span><span class="fb-sub">Sociedad de Fomento · Est. 1924</span></div></div>
       <p class="fb-tagline">"Mucho más que un club de barrio"</p>
-      <div class="fb-social">
-        <a href="https://www.facebook.com/sfvillaherminia" target="_blank" class="fb-soc" title="Facebook">F</a>
-        <a href="https://x.com/jvillaherminia" target="_blank" class="fb-soc" title="Twitter/X">X</a>
-        <a href="https://www.instagram.com/sfvillaherminia" target="_blank" class="fb-soc" title="Instagram">IG</a>
-        <a href="https://www.youtube.com/@masqueunclubmasqueunclub" target="_blank" class="fb-soc" title="YouTube">YT</a>
-        <a href="https://www.tiktok.com/@villaherminiaoficial" target="_blank" class="fb-soc" title="TikTok">TT</a>
+      <div class="fb-soc">
+        <a href="https://www.facebook.com/sfvillaherminia" target="_blank" class="fsoc">F</a>
+        <a href="https://x.com/jvillaherminia" target="_blank" class="fsoc">X</a>
+        <a href="https://www.instagram.com/sfvillaherminia" target="_blank" class="fsoc">IG</a>
+        <a href="https://www.youtube.com/@masqueunclubmasqueunclub" target="_blank" class="fsoc">YT</a>
+        <a href="https://www.tiktok.com/@villaherminiaoficial" target="_blank" class="fsoc">TT</a>
       </div>
     </div>
     <div>
@@ -909,13 +866,13 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
         <li><a href="#">Ser Socio</a></li>
         <li><a href="#patrocinio">Sponsorear</a></li>
         <li><a href="#donar">Donaciones</a></li>
-        <li><a href="#">Ligas</a></li>
+        <li><a href="#ligas">Ligas</a></li>
       </ul>
     </div>
     <div>
       <p class="fc-title">Contacto</p>
       <ul class="fc-links">
-        <li><a href="https://maps.google.com/?q=Croacia+2843+3+de+Febrero+Buenos+Aires" target="_blank">📍 Croacia 2843, 3 de Febrero</a></li>
+        <li><a href="https://maps.google.com/?q=Croacia+2843+3+de+Febrero" target="_blank">📍 Croacia 2843, 3 de Febrero</a></li>
         <li><a href="https://www.instagram.com/sfvillaherminia" target="_blank">📷 @sfvillaherminia</a></li>
         <li><a href="https://www.youtube.com/@masqueunclubmasqueunclub" target="_blank">▶ YouTube</a></li>
         <li><a href="https://www.tiktok.com/@villaherminiaoficial" target="_blank">♪ @villaherminiaoficial</a></li>
@@ -923,7 +880,7 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
       <div style="margin-top:1.5rem"><a href="#donar" class="btn-d" style="padding:10px 20px;font-size:11px;clip-path:none">💚 Donar al club</a></div>
     </div>
   </div>
-  <div class="fb">
+  <div class="fb-bottom">
     <p class="fb-copy">© 2026 Sociedad de Fomento Villa Herminia · Todos los derechos reservados</p>
     <p class="fb-founded">SFVH · 1924 — 2026</p>
   </div>
@@ -935,12 +892,12 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
   <span class="float-txt">Donar</span>
 </a>
 
-<!-- DISCIPLINE PAGE -->
+<!-- DISCIPLINE PAGE OVERLAY -->
 <div class="disc-page" id="discPage">
   <button class="dp-close" onclick="closeDisc()">✕</button>
   <div class="dp-hero">
     <div class="dp-bg" id="dpBg"></div>
-    <div class="dp-pattern"></div>
+    <div class="dp-pat"></div>
     <div class="dp-grad"></div>
     <div style="position:relative;z-index:1">
       <p class="sl" id="dpTag" style="margin-bottom:1rem"></p>
@@ -970,7 +927,7 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
         </div>
       </div>
     </div>
-    <p class="dp-sub">Galería de fotos</p>
+    <p class="dp-sub">Galería</p>
     <div class="dp-photos" id="dpPhotos"></div>
     <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(45,140,78,.15)">
       <button onclick="closeDisc()" class="btn-o">← Volver al inicio</button>
@@ -983,19 +940,18 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
 const floatBtn = document.getElementById('floatDonar');
 const donarSec = document.getElementById('donar');
 window.addEventListener('scroll', () => {
-  const nav = document.getElementById('mainNav');
-  nav.style.background = window.scrollY > 80 ? 'rgba(8,15,10,.98)' : 'rgba(8,15,10,.92)';
+  document.getElementById('mainNav').style.background =
+    window.scrollY > 80 ? 'rgba(8,15,10,.98)' : 'rgba(8,15,10,.93)';
   floatBtn.classList.toggle('vis', window.scrollY > 400);
   if (donarSec) {
     const r = donarSec.getBoundingClientRect();
-    floatBtn.classList.toggle('hide-d', r.top < window.innerHeight && r.bottom > 0);
+    floatBtn.classList.toggle('hidd', r.top < window.innerHeight && r.bottom > 0);
   }
 });
 
 // MOBILE MENU
 function toggleMenu() {
-  const m = document.getElementById('mobileMenu');
-  const b = document.getElementById('hamburger');
+  const m = document.getElementById('mobileMenu'), b = document.getElementById('hamburger');
   const o = m.classList.toggle('open');
   b.classList.toggle('open', o);
   document.body.style.overflow = o ? 'hidden' : '';
@@ -1007,12 +963,18 @@ function closeMM() {
 }
 
 // FADE IN
-const io = new IntersectionObserver(es => {
+new IntersectionObserver((es, obs) => {
   es.forEach((e, i) => {
-    if (e.isIntersecting) { setTimeout(() => e.target.classList.add('vis'), i * 70); io.unobserve(e.target); }
+    if (e.isIntersecting) { setTimeout(() => e.target.classList.add('vis'), i * 70); obs.unobserve(e.target); }
   });
-}, { threshold: 0.08 });
-document.querySelectorAll('.fi').forEach(el => io.observe(el));
+}, { threshold: 0.08 }).observe
+// Observe all
+;(()=>{
+  const io = new IntersectionObserver((es, obs) => {
+    es.forEach((e,i)=>{ if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('vis'),i*70); obs.unobserve(e.target); } });
+  },{threshold:0.08});
+  document.querySelectorAll('.fi').forEach(el=>io.observe(el));
+})();
 
 // DONAR SELECT
 function selMonto(el) {
@@ -1020,61 +982,61 @@ function selMonto(el) {
   el.classList.add('active');
 }
 
-// DISCIPLINE DATA
+// DISCIPLINE DATA — fotos mapeadas a carpetas reales
 const discs = {
   'voley-f': {
-    tag: 'Vóley · Federado UNILIVO', title: 'Vóley Femenino',
-    bg: 'img/disciplinas/voley-f-1.jpg',
-    desc: 'El equipo femenino es uno de los más activos del club, con participación constante en torneos locales y regionales dentro de la liga UNILIVO. Fomentamos el deporte femenino desde las categorías infantiles, apostando al desarrollo técnico y la inclusión. Mayores, juveniles e infantiles compiten semana a semana con los colores verdes.',
-    sched: ['Martes y Jueves — 18:30 a 20:30', 'Sábados — 09:00 a 12:00 (menores)'],
-    coachAv: 'LR', coachName: 'Laura Rodríguez', coachRole: 'Entrenadora Principal',
-    coachVision: '"El vóley femenino en el barrio crece cada año. Veo chicas que llegan por primera vez y en pocos meses descubren su pasión. Eso es lo que me motiva a seguir."',
-    photos: ['img/disciplinas/voley-f-1.jpg','img/disciplinas/voley-f-2.jpg','img/disciplinas/voley-f-3.jpg','img/disciplinas/voley-f-4.jpg','img/disciplinas/voley-f-5.jpg']
+    tag:'Vóley · Federado UNILIVO', title:'Vóley Femenino',
+    bg:'img/disciplinas/voley/foto1.jpg',
+    desc:'El equipo femenino es uno de los más activos del club, con participación constante en la liga UNILIVO. Mayores, juveniles e infantiles compiten cada semana con los colores verdes, en un ambiente de compañerismo y superación constante.',
+    sched:['Martes y Jueves — 18:30 a 20:30','Sábados — 09:00 a 12:00 (menores)'],
+    coachAv:'LR', coachName:'Laura Rodríguez', coachRole:'Entrenadora Principal',
+    coachVision:'"El vóley femenino en el barrio crece cada año. Veo chicas que llegan por primera vez y en pocos meses descubren su pasión. Eso es lo que me motiva."',
+    photos:['img/disciplinas/voley/foto1.jpg','img/disciplinas/voley/foto2.jpg','img/disciplinas/voley/foto3.jpg','img/disciplinas/voley/foto4.jpg','img/disciplinas/voley/foto5.jpg']
   },
   'voley-m': {
-    tag: 'Vóley · Federado UNILIVO', title: 'Vóley Masculino',
-    bg: 'img/disciplinas/voley-m-1.jpg',
-    desc: 'El vóley masculino de Villa Herminia tiene décadas de historia en la institución. Desde las categorías más jóvenes hasta el equipo de mayores, trabajamos para desarrollar jugadores integrales con valores deportivos y humanos. Competimos en la liga UNILIVO representando con orgullo los colores verdes.',
-    sched: ['Lunes y Miércoles — 19:00 a 21:00', 'Sábados — 10:00 a 12:00 (infantil)', 'Sábados — 15:00 a 18:00 (mayores)'],
-    coachAv: 'MG', coachName: 'Martín García', coachRole: 'Director Técnico',
-    coachVision: '"Mi filosofía es que el vóley es un deporte colectivo, y eso se entrena tanto dentro de la cancha como fuera. Formo jugadores, pero sobre todo personas con valores."',
-    photos: ['img/disciplinas/voley-m-1.jpg','img/disciplinas/voley-m-2.jpg','img/disciplinas/voley-f-6.jpg','img/disciplinas/voley-f-7.jpg','img/disciplinas/voley-f-8.jpg']
+    tag:'Vóley · Federado UNILIVO', title:'Vóley Masculino',
+    bg:'img/disciplinas/voley/foto4.jpg',
+    desc:'El vóley masculino tiene décadas de historia en la institución. Desde las categorías más jóvenes hasta mayores, desarrollamos jugadores integrales. Competimos en UNILIVO con orgullo y compromiso.',
+    sched:['Lunes y Miércoles — 19:00 a 21:00','Sábados — 10:00 a 18:00 (por categoría)'],
+    coachAv:'MG', coachName:'Martín García', coachRole:'Director Técnico',
+    coachVision:'"El vóley es un deporte colectivo, y eso se entrena dentro y fuera de la cancha. Formo jugadores, pero sobre todo personas."',
+    photos:['img/disciplinas/voley/foto4.jpg','img/disciplinas/voley/foto5.jpg','img/disciplinas/voley/foto6.jpg','img/disciplinas/voley/foto1.jpg','img/disciplinas/voley/foto2.jpg']
   },
   'baby': {
-    tag: 'Baby Fútbol · Liga FEFI', title: 'Baby Fútbol',
-    bg: 'img/disciplinas/baby-futbol-1.jpg',
-    desc: 'El baby fútbol es la puerta de entrada al deporte rey para los más chicos. Competimos en FEFI, la mayor liga de baby fútbol de Argentina con más de 30.000 jugadores y 400 clubes. También tenemos jardín fútbol para los más pequeños. Los chicos aprenden las reglas del fútbol, desarrollan habilidades motoras y se divierten con sus amigos del barrio.',
-    sched: ['Sábados — 09:00 a 11:00 (categorías 2018 y 2019)', 'Sábados — 11:00 a 13:00 (categorías 2016 y 2017)', 'Domingos — torneos FEFI'],
-    coachAv: 'DF', coachName: 'Diego Fernández', coachRole: 'Director de Inferiores',
-    coachVision: '"El baby no es solo para aprender fútbol. Es para aprender a ganar y perder, trabajar en equipo y respetar al rival. El fútbol es un espejo de la vida."',
-    photos: ['img/disciplinas/baby-futbol-1.jpg','img/disciplinas/baby-futbol-2.jpg','img/disciplinas/futsal-2.jpg','img/disciplinas/futsal-general.jpg','img/disciplinas/baby-futbol-1.jpg']
+    tag:'Baby Fútbol · Liga FEFI', title:'Baby Fútbol',
+    bg:'img/disciplinas/baby/foto1.jpg',
+    desc:'Competimos en FEFI, la mayor liga de baby fútbol de Argentina. Jardín fútbol para los más pequeños y baby fútbol para los que van creciendo. Un espacio de diversión, valores y primeras emociones deportivas.',
+    sched:['Sábados — 09:00 a 11:00 (2018-2019)','Sábados — 11:00 a 13:00 (2016-2017)','Domingos — torneos FEFI'],
+    coachAv:'DF', coachName:'Diego Fernández', coachRole:'Director de Inferiores',
+    coachVision:'"El baby no es solo fútbol. Es aprender a ganar y perder, trabajar en equipo y respetar al rival. El fútbol es un espejo de la vida."',
+    photos:['img/disciplinas/baby/foto1.jpg','img/disciplinas/baby/foto2.jpg','img/disciplinas/baby/foto3.jpg','img/disciplinas/baby/foto4.jpg',null]
   },
   'futsal': {
-    tag: 'Futsal · LAAMBA · BAFI', title: 'Futsal',
-    bg: 'img/disciplinas/futsal-general.jpg',
-    desc: 'Villa Herminia tiene presencia en LAAMBA y BAFI, las ligas más importantes de futsal del AMBA. Con divisiones masculino, femenino, senior y master, formamos jugadores que destacan a nivel regional. La LAAMBA nuclea más de 300 clubes de barrio y AFA, con torneos nacionales e internacionales.',
-    sched: ['Lunes y Miércoles — 20:30 a 22:30', 'Viernes — 19:00 a 21:00 (sub-17)', 'Partidos oficiales los fines de semana'],
-    coachAv: 'CM', coachName: 'Carlos Méndez', coachRole: 'Técnico Principal',
-    coachVision: '"El futsal desarrolla la inteligencia táctica como ningún otro deporte. En una cancha pequeña hay que pensar rápido y decidir bien."',
-    photos: ['img/disciplinas/futsal-general.jpg','img/disciplinas/futsal-2.jpg','img/disciplinas/baby-futbol-2.jpg','img/disciplinas/futsal-general.jpg','img/disciplinas/futsal-2.jpg']
+    tag:'Futsal · LAAMBA · BAFI', title:'Futsal',
+    bg:'img/disciplinas/futsal/foto1.jpg',
+    desc:'Competimos en LAAMBA y BAFI. Con divisiones masculino, femenino, senior y master, formamos jugadores de alto nivel. La LAAMBA nuclea +300 clubes y AFA, con torneos nacionales e internacionales.',
+    sched:['Lunes y Miércoles — 20:30 a 22:30','Viernes — 19:00 a 21:00 (sub-17)','Partidos oficiales fines de semana'],
+    coachAv:'CM', coachName:'Carlos Méndez', coachRole:'Técnico Principal',
+    coachVision:'"El futsal desarrolla la inteligencia táctica como ningún otro deporte. En una cancha pequeña hay que pensar rápido y decidir bien."',
+    photos:['img/disciplinas/futsal/foto1.jpg',null,null,null,null]
   },
   'taekwondo': {
-    tag: 'Arte Marcial Olímpico', title: 'Taekwondo',
-    bg: 'img/disciplinas/taekwondo.jpg',
-    desc: 'El taekwondo en Villa Herminia va mucho más allá del deporte. Es una disciplina que enseña respeto, concentración y autoconfianza. Nuestro centro de entrenamiento trabaja con niños desde los 4 años hasta adultos mayores, en un ambiente de contención y crecimiento personal.',
-    sched: ['Lunes, Miércoles y Viernes — 17:00 a 18:30 (infantil)', 'Martes y Jueves — 20:00 a 22:00 (adultos)'],
-    coachAv: 'JP', coachName: 'Juan Pablo Torres', coachRole: 'Instructor · Cinturón Negro 3er Dan',
-    coachVision: '"El taekwondo es una herramienta de vida. Los principios que aprendemos son los mismos que guían a una buena persona en todos los aspectos de su vida."',
-    photos: ['img/disciplinas/taekwondo.jpg','img/disciplinas/taekwondo.jpg','img/disciplinas/taekwondo.jpg','img/disciplinas/taekwondo.jpg','img/disciplinas/taekwondo.jpg']
+    tag:'Arte Marcial Olímpico', title:'Taekwondo',
+    bg:'img/disciplinas/taekwondo/foto1.jpg',
+    desc:'Más allá del deporte, el taekwondo enseña respeto, concentración y autoconfianza. Nuestro centro de entrenamiento trabaja con niños desde los 4 años hasta adultos mayores, en un ambiente de crecimiento personal.',
+    sched:['Lunes, Miércoles y Viernes — 17:00 a 18:30 (infantil)','Martes y Jueves — 20:00 a 22:00 (adultos)'],
+    coachAv:'JP', coachName:'Juan Pablo Torres', coachRole:'Instructor · Cinturón Negro 3er Dan',
+    coachVision:'"El taekwondo es una herramienta de vida. Los principios del dojang son los mismos que guían a una buena persona en todos los aspectos."',
+    photos:['img/disciplinas/taekwondo/foto1.jpg',null,null,null,null]
   },
   'bienestar': {
-    tag: 'Centro de Entrenamiento', title: 'Zumba · Boxeo · Funcional',
-    bg: 'img/disciplinas/taekwondo.jpg',
-    desc: 'Nuestro centro de entrenamiento ofrece clases de Zumba con ritmos latinos para todas las edades, Boxeo para quienes buscan un deporte de contacto con disciplina y técnica, y Entrenamiento Funcional para mejorar condición física, fuerza y resistencia. Un espacio para el bienestar de toda la familia.',
-    sched: ['Zumba: Martes y Jueves — 18:00 a 19:00 / Sábados 10:00', 'Boxeo: Lunes, Miércoles y Viernes — 19:00 a 20:30', 'Funcional: Lunes a Viernes — 07:00 a 08:30'],
-    coachAv: 'VG', coachName: 'Valentina Gómez', coachRole: 'Instructora Certificada',
-    coachVision: '"En mis clases no importa el nivel. Lo que importa es que te muevas, te rías y salgas mejor de como entraste. La alegría también es salud."',
-    photos: ['img/disciplinas/taekwondo.jpg','img/disciplinas/baby-futbol-1.jpg','img/disciplinas/voley-f-1.jpg','img/disciplinas/futsal-general.jpg','img/disciplinas/taekwondo.jpg']
+    tag:'Centro de Entrenamiento', title:'Zumba · Boxeo · Funcional',
+    bg:null,
+    desc:'Zumba con ritmos latinos para todas las edades, Boxeo con disciplina y técnica, y Entrenamiento Funcional para mejorar condición física, fuerza y resistencia. Un espacio para el bienestar de toda la familia.',
+    sched:['Zumba: Martes y Jueves 18:00 / Sábados 10:00','Boxeo: Lunes, Miércoles y Viernes 19:00','Funcional: Lunes a Viernes 07:00'],
+    coachAv:'VG', coachName:'Valentina Gómez', coachRole:'Instructora Certificada',
+    coachVision:'"No importa el nivel. Lo que importa es que te muevas, te rías y salgas mejor de como entraste. La alegría también es salud."',
+    photos:[null,null,null,null,null]
   }
 };
 
@@ -1083,20 +1045,23 @@ function openDisc(id) {
   document.getElementById('dpTag').textContent = d.tag;
   document.getElementById('dpTitle').textContent = d.title;
   document.getElementById('dpDesc').textContent = d.desc;
-  document.getElementById('dpBg').style.backgroundImage = `url('${d.bg}')`;
+  document.getElementById('dpBg').style.backgroundImage = d.bg ? `url('${d.bg}')` : 'linear-gradient(135deg,#0d3d1e,#040a06)';
   document.getElementById('coachAv').textContent = d.coachAv;
   document.getElementById('coachName').textContent = d.coachName;
   document.getElementById('coachRole').textContent = d.coachRole;
   document.getElementById('coachVision').textContent = d.coachVision;
   document.getElementById('dpSched').innerHTML = d.sched.map(s =>
     `<div style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(45,140,78,.07);border:1px solid rgba(45,140,78,.15)">
-      <span style="color:var(--vc);font-size:14px">⏰</span>
+      <span style="color:var(--vc)">⏰</span>
       <span style="font-size:13px;color:rgba(245,240,232,.65)">${s}</span>
     </div>`).join('');
-  document.getElementById('dpPhotos').innerHTML = d.photos.map(p =>
-    `<div class="dp-photo"><img src="${p}" alt="" loading="lazy"></div>`).join('');
+  document.getElementById('dpPhotos').innerHTML = d.photos.map((p,i) =>
+    p ? `<div class="dp-photo"><img src="${p}" alt="Foto ${i+1}" loading="lazy"></div>`
+      : `<div class="dp-photo"><div class="dp-placeholder">📷<span>Próximamente</span></div></div>`
+  ).join('');
   document.getElementById('discPage').classList.add('active');
   document.body.style.overflow = 'hidden';
+  document.getElementById('discPage').scrollTop = 0;
 }
 function closeDisc() {
   document.getElementById('discPage').classList.remove('active');
