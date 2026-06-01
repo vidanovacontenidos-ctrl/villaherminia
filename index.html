@@ -78,10 +78,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 4rem;display:flex
 .b102-sub{font-family:'Barlow Condensed',sans-serif;font-size:clamp(20px,3vw,36px);letter-spacing:6px;text-transform:uppercase;color:var(--crema);opacity:.7;margin-bottom:1.5rem;font-weight:300}
 .b102-desc{font-size:15px;line-height:1.8;color:rgba(245,240,232,.55);max-width:420px}
 .b102-values{display:flex;gap:2rem;margin-top:2rem;flex-wrap:wrap}
-.b102-val{text-align:center;padding:0 1rem;border-right:1px solid rgba(45,140,78,.3)}
+.b102-val{text-align:center;padding:0 1.2rem;border-right:1px solid rgba(45,140,78,.3)}
 .b102-val:last-child{border-right:none}
-.b102-val-icon{font-size:20px;margin-bottom:4px}
-.b102-val-label{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(245,240,232,.4)}
+.b102-val-label{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:rgba(245,240,232,.55);font-weight:600}
 
 /* ===== BUTTONS ===== */
 .btn-p{background:var(--vv);color:var(--blanco);padding:14px 36px;font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:3px;text-transform:uppercase;font-weight:700;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px))}
@@ -116,16 +115,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 4rem;display:flex
 
 /* ===== NOTICIAS ===== */
 .noticias{padding:6rem 4rem;background:var(--gos)}
-.not-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:1px;background:rgba(45,140,78,.12);border:1px solid rgba(45,140,78,.12);margin-top:3rem}
+.not-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(45,140,78,.12);border:1px solid rgba(45,140,78,.12);margin-top:3rem}
 .nc{background:var(--negro);overflow:hidden;cursor:pointer;transition:background .3s;text-decoration:none;display:block}
 .nc:hover{background:var(--gom)}
-.nc.feat img{aspect-ratio:16/9;width:100%;object-fit:cover;display:block}
-.nc:not(.feat) img{aspect-ratio:3/2;width:100%;object-fit:cover;display:block}
+.nc img{aspect-ratio:1/1;width:100%;object-fit:cover;display:block}
+.nc.feat img{aspect-ratio:1/1}
 .nc-body{padding:1.5rem 2rem 2rem}
-.nc.feat .nc-body{padding:2rem 2.5rem 2.5rem}
 .nc-tag{display:inline-block;background:rgba(45,140,78,.2);border:1px solid rgba(45,140,78,.4);padding:3px 10px;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--vmenta);margin-bottom:.75rem;font-weight:600}
 .nc-title{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:1px;color:var(--blanco);margin-bottom:.5rem;line-height:1.1}
-.nc.feat .nc-title{font-size:30px}
 .nc-excerpt{font-size:13px;line-height:1.7;color:rgba(245,240,232,.5);margin-bottom:1rem}
 .nc-meta{font-size:10px;letter-spacing:2px;color:rgba(245,240,232,.3);text-transform:uppercase}
 
@@ -310,33 +307,62 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
 .float-donar:hover{background:rgba(42,48,40,.97);border-color:rgba(184,190,200,.7);color:var(--plata-cl)}
 .float-donar.hidd{opacity:0!important;pointer-events:none!important}
 
-/* ===== DISC PAGE OVERLAY ===== */
-.disc-page{display:none;position:fixed;inset:0;z-index:2000;background:var(--negro);overflow-y:auto}
-.disc-page.active{display:block;animation:sIn .4s ease}
-@keyframes sIn{from{transform:translateX(100%);opacity:0}to{transform:translateX(0);opacity:1}}
-.dp-hero{height:55vh;min-height:380px;position:relative;display:flex;align-items:flex-end;padding:4rem;overflow:hidden}
-.dp-bg{position:absolute;inset:0;background-size:cover;background-position:center}
-.dp-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,15,10,1) 0%,rgba(8,15,10,.5) 55%,rgba(8,15,10,.15) 100%)}
-.dp-pat{position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 49px,rgba(45,140,78,.07) 49px,rgba(45,140,78,.07) 50px),repeating-linear-gradient(90deg,transparent,transparent 49px,rgba(45,140,78,.07) 49px,rgba(45,140,78,.07) 50px)}
-.dp-close{position:fixed;top:1.5rem;right:1.5rem;z-index:2001;width:44px;height:44px;background:rgba(8,15,10,.9);border:1px solid rgba(45,140,78,.4);color:var(--blanco);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;border-radius:2px}
-.dp-close:hover{background:var(--vm)}
-.dp-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,8vw,90px);line-height:.9;color:var(--blanco);position:relative;z-index:1}
-.dp-content{padding:4rem;max-width:1100px}
-.dp-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-bottom:4rem}
-.dp-sub{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:3px;color:var(--vc);margin-bottom:1rem}
-.dp-txt{font-size:15px;line-height:1.9;color:rgba(245,240,232,.65)}
-.dp-photos{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:1.5rem}
-.dp-photo{aspect-ratio:1;background:var(--gom);border:1px solid rgba(45,140,78,.2);overflow:hidden}
-.dp-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
-.dp-photo:hover img{transform:scale(1.06)}
-.dp-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font-size:22px}
-.dp-placeholder span{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(245,240,232,.2)}
-.coach-card{background:var(--gos);border:1px solid rgba(45,140,78,.2);padding:2rem;position:relative}
-.coach-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--vv)}
-.coach-av{width:64px;height:64px;background:var(--vd);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--vc);margin-bottom:1rem;border:2px solid rgba(45,140,78,.3)}
-.coach-name{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--blanco);margin-bottom:4px}
-.coach-role{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--vc);margin-bottom:1rem}
-.coach-vision{font-size:14px;line-height:1.8;color:rgba(245,240,232,.55);font-style:italic}
+/* ===== DISC PAGE — OPCIÓN A: Oscura & Minimalista ===== */
+.disc-page{display:none;position:fixed;inset:0;z-index:2000;background:var(--negro);overflow-y:auto;-webkit-overflow-scrolling:touch}
+.disc-page.active{display:block;animation:sIn .35s cubic-bezier(.4,0,.2,1)}
+@keyframes sIn{from{transform:translateX(60px);opacity:0}to{transform:translateX(0);opacity:1}}
+
+/* HERO */
+.dp-hero{height:60vh;min-height:420px;position:relative;display:flex;align-items:flex-end;padding:0;overflow:hidden}
+.dp-bg-photo{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 8s ease}
+.disc-page.active .dp-bg-photo{transform:scale(1.06)}
+.dp-bg-color{position:absolute;inset:0;background:#0d3d1e}
+.dp-grid-pattern{position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(61,168,98,.07) 39px,rgba(61,168,98,.07) 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(61,168,98,.07) 39px,rgba(61,168,98,.07) 40px)}
+.dp-photo-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,15,10,1) 0%,rgba(8,15,10,.65) 40%,rgba(8,15,10,.2) 100%)}
+.dp-accent-line{position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(to bottom,var(--vc),var(--vd));z-index:3}
+.dp-hero-content{position:relative;z-index:4;padding:2rem 4rem 3.5rem 5rem;width:100%}
+.dp-hero-tag{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--vc);font-weight:600;margin-bottom:1rem;display:flex;align-items:center;gap:12px}
+.dp-hero-tag::before{content:'';display:block;width:24px;height:1px;background:var(--vv)}
+.dp-hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(56px,8vw,100px);line-height:.88;color:var(--blanco);letter-spacing:1px}
+.dp-hero-sub{font-family:'Barlow Condensed',sans-serif;font-size:16px;letter-spacing:4px;text-transform:uppercase;color:rgba(245,240,232,.4);margin-top:.75rem;font-weight:300}
+
+/* CLOSE BTN */
+.dp-close{position:fixed;top:1.5rem;right:1.5rem;z-index:2001;width:44px;height:44px;background:rgba(8,15,10,.92);border:1px solid rgba(45,140,78,.5);color:var(--blanco);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;border-radius:2px;backdrop-filter:blur(8px)}
+.dp-close:hover{background:var(--vm);border-color:var(--vc)}
+
+/* CONTENT AREA */
+.dp-content{max-width:1100px;padding:4rem 4rem 4rem 5rem}
+.dp-cols{display:grid;grid-template-columns:1.1fr .9fr;gap:5rem;margin-bottom:4rem}
+.dp-sub{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:4px;color:var(--vc);margin-bottom:1.25rem;display:flex;align-items:center;gap:12px}
+.dp-sub::before{content:'';display:block;width:20px;height:1px;background:var(--vv)}
+.dp-txt{font-size:15px;line-height:1.95;color:rgba(245,240,232,.62)}
+.dp-sched{display:flex;flex-direction:column;gap:8px;margin-top:1.25rem}
+.dp-sched-row{display:flex;align-items:center;gap:12px;padding:11px 16px;background:rgba(13,61,30,.4);border:1px solid rgba(45,140,78,.18);border-left:2px solid var(--vv)}
+.dp-sched-row span{font-size:13px;color:rgba(245,240,232,.68);letter-spacing:.5px}
+
+/* COACH */
+.coach-card{background:rgba(13,61,30,.25);border:1px solid rgba(45,140,78,.2);padding:2rem;position:relative;overflow:hidden}
+.coach-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--vc),var(--vv))}
+.coach-card::after{content:'';position:absolute;top:-30px;right:-30px;width:120px;height:120px;border-radius:50%;background:rgba(45,140,78,.06)}
+.coach-av{width:60px;height:60px;background:rgba(45,140,78,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--vc);margin-bottom:1rem;border:1px solid rgba(45,140,78,.35)}
+.coach-name{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:1px;color:var(--blanco);margin-bottom:2px}
+.coach-role{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--vc);margin-bottom:1.25rem;opacity:.8}
+.coach-vision{font-size:13px;line-height:1.85;color:rgba(245,240,232,.5);font-style:italic;border-left:2px solid rgba(45,140,78,.3);padding-left:1rem;margin-top:.5rem}
+.dp-join-box{margin-top:1.5rem;padding:1.5rem;background:rgba(45,140,78,.08);border:1px solid rgba(45,140,78,.2)}
+.dp-join-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--vc);margin-bottom:.75rem;font-weight:600}
+
+/* GALLERY */
+.dp-gallery-title{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:4px;color:var(--vc);margin-bottom:1.25rem;display:flex;align-items:center;gap:12px}
+.dp-gallery-title::before{content:'';display:block;width:20px;height:1px;background:var(--vv)}
+.dp-photos{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.dp-photo{aspect-ratio:1;background:rgba(13,61,30,.3);border:1px solid rgba(45,140,78,.15);overflow:hidden;cursor:zoom-in}
+.dp-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s cubic-bezier(.4,0,.2,1)}
+.dp-photo:hover img{transform:scale(1.1)}
+.dp-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:rgba(45,140,78,.3);font-size:9px;letter-spacing:2px;text-transform:uppercase}
+.dp-placeholder::before{content:'＋';font-size:28px;font-weight:300;color:rgba(45,140,78,.2)}
+
+/* BACK BTN */
+.dp-back{margin-top:3rem;padding-top:2.5rem;border-top:1px solid rgba(45,140,78,.12)}
 
 /* ===== FADE IN ===== */
 .fi{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
@@ -359,18 +385,28 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
   .b102-content{padding:0 2.5rem}
   .disciplinas,.noticias,.tienda,.programas,.ligas,.accion,.patrocinio,.donar{padding:5rem 2rem}
   footer{padding:4rem 2rem 2rem}
-  .dp-grid{grid-template-columns:1fr}.dp-photos{grid-template-columns:repeat(3,1fr)}.dp-content{padding:2rem}
+  .dp-cols{grid-template-columns:1fr}
+  .dp-content{padding:2.5rem 2rem 2.5rem 2.5rem}
+  .dp-hero-content{padding:2rem 2rem 3rem 2.5rem}
+  .dp-photos{grid-template-columns:repeat(3,1fr)}
+  .dp-hero{height:50vh;min-height:360px}
 }
 @media(max-width:600px){
   .hero-title{font-size:60px}.hero-subtitle{font-size:20px;letter-spacing:4px}
-  .disc-grid{grid-template-columns:1fr}.dc.landscape,.dc.portrait{aspect-ratio:3/2}
+  .disc-grid{grid-template-columns:1fr 1fr}
+  .dc.portrait{aspect-ratio:3/4}
+  .dc.landscape{aspect-ratio:3/2}
+  .not-grid{grid-template-columns:1fr}
   .acc-grid,.planes-grid{grid-template-columns:1fr}.ligas-grid{grid-template-columns:1fr 1fr}
   .donar-opts{grid-template-columns:1fr 1fr}.impacto-bar{grid-template-columns:1fr 1fr}
   .ft{grid-template-columns:1fr;gap:2rem}.fb-bottom{flex-direction:column;align-items:flex-start}
   nav{padding:0 1.5rem}
-  .b102-num{font-size:80px}.b102-content{max-width:100%}
+  .b102-num{font-size:80px}.b102-content{max-width:100%;padding:0 1.5rem}
   .float-donar{bottom:1.2rem;right:1.2rem;clip-path:none;border-radius:50%;padding:14px;width:52px;height:52px;justify-content:center}
   .float-donar .float-txt{display:none}
+  .dp-photos{grid-template-columns:repeat(2,1fr)}
+  .dp-content{padding:1.5rem}
+  .dp-hero{padding:2rem;height:45vh;min-height:300px}
 }
 </style>
 </head>
@@ -472,10 +508,10 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
     <p class="b102-sub">de historia viva</p>
     <p class="b102-desc">Más de un siglo construyendo comunidad, deporte y cultura en el barrio. 102 años de pasión verde que siguen creciendo cada día.</p>
     <div class="b102-values">
-      <div class="b102-val"><div class="b102-val-icon">❤️</div><div class="b102-val-label">Historia</div></div>
-      <div class="b102-val"><div class="b102-val-icon">🤝</div><div class="b102-val-label">Comunidad</div></div>
-      <div class="b102-val"><div class="b102-val-icon">⚽</div><div class="b102-val-label">Pasión</div></div>
-      <div class="b102-val"><div class="b102-val-icon">🏠</div><div class="b102-val-label">Pertenencia</div></div>
+      <div class="b102-val"><div class="b102-val-label">Historia</div></div>
+      <div class="b102-val"><div class="b102-val-label">Comunidad</div></div>
+      <div class="b102-val"><div class="b102-val-label">Pasión</div></div>
+      <div class="b102-val"><div class="b102-val-label">Pertenencia</div></div>
     </div>
   </div>
 </section>
@@ -493,17 +529,15 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
   <div style="max-width:1300px;margin:0 auto">
     <div class="sh fi"><p class="sl">Lo que está pasando</p><h2 class="st">Noticias del<br><span>Club</span></h2></div>
     <div class="not-grid">
-      <!-- DIA DEL HINCHA — nueva noticia principal -->
-      <a class="nc feat fi" href="#">
+      <a class="nc fi" href="#">
         <img src="img/noticias/diahincha.jpg" alt="Día del Hincha de Villa Herminia">
         <div class="nc-body">
           <span class="nc-tag">10 de Abril</span>
           <h3 class="nc-title">Día del Hincha de Villa Herminia</h3>
-          <p class="nc-excerpt">El 10 de abril celebramos el Día del Hincha de Villa Herminia. Una fecha especial para todos los que llevan el verde en el corazón. ¡Gracias por ser parte!</p>
+          <p class="nc-excerpt">El 10 de abril celebramos el Día del Hincha. Para todos los que llevan el verde en el corazón. ¡Gracias por ser parte!</p>
           <p class="nc-meta">10 Abr · Fecha especial</p>
         </div>
       </a>
-      <!-- MALVINAS -->
       <a class="nc fi" href="#">
         <img src="img/noticias/malvinas.jpg" alt="Proyecto Mural Tapitas Malvinas Argentinas">
         <div class="nc-body">
@@ -513,7 +547,6 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
           <p class="nc-meta">Jun 2026 · Proyecto institucional</p>
         </div>
       </a>
-      <!-- REDES -->
       <a class="nc fi" href="https://www.instagram.com/sfvillaherminia" target="_blank">
         <img src="img/noticias/redes.jpg" alt="Seguinos @sfvillaherminia">
         <div class="nc-body">
@@ -888,26 +921,34 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
   <span class="float-txt">Donar</span>
 </a>
 
-<!-- DISCIPLINE PAGE OVERLAY -->
+<!-- DISCIPLINE PAGE OVERLAY — OPCIÓN A -->
 <div class="disc-page" id="discPage">
-  <button class="dp-close" onclick="closeDisc()">✕</button>
+  <button class="dp-close" onclick="closeDisc()" aria-label="Cerrar">✕</button>
+
   <div class="dp-hero">
-    <div class="dp-bg" id="dpBg"></div>
-    <div class="dp-pat"></div>
-    <div class="dp-grad"></div>
-    <div style="position:relative;z-index:1">
-      <p class="sl" id="dpTag" style="margin-bottom:1rem"></p>
-      <h1 class="dp-title" id="dpTitle"></h1>
+    <div class="dp-bg-color"></div>
+    <div class="dp-bg-photo" id="dpBgPhoto"></div>
+    <div class="dp-grid-pattern"></div>
+    <div class="dp-photo-overlay"></div>
+    <div class="dp-accent-line"></div>
+    <div class="dp-hero-content">
+      <p class="dp-hero-tag" id="dpTag"></p>
+      <h1 class="dp-hero-title" id="dpTitle"></h1>
+      <p class="dp-hero-sub" id="dpSub"></p>
     </div>
   </div>
+
   <div class="dp-content">
-    <div class="dp-grid">
+    <div class="dp-cols">
       <div>
         <p class="dp-sub">Sobre la disciplina</p>
         <p class="dp-txt" id="dpDesc"></p>
-        <div style="margin-top:2rem">
-          <p class="dp-sub" style="font-size:18px;margin-bottom:1rem">Horarios</p>
-          <div id="dpSched" style="display:flex;flex-direction:column;gap:8px"></div>
+        <div style="margin-top:2.5rem">
+          <p class="dp-sub">Horarios</p>
+          <div class="dp-sched" id="dpSched"></div>
+        </div>
+        <div class="dp-back">
+          <button onclick="closeDisc()" class="btn-o" style="font-size:11px;padding:10px 24px">← Volver al inicio</button>
         </div>
       </div>
       <div>
@@ -917,17 +958,15 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
           <div class="coach-role" id="coachRole"></div>
           <p class="coach-vision" id="coachVision"></p>
         </div>
-        <div style="margin-top:1.5rem;padding:1.5rem;background:rgba(45,140,78,.06);border:1px solid rgba(45,140,78,.15)">
-          <p style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--vc);margin-bottom:.75rem;font-weight:600">¿Querés unirte?</p>
+        <div class="dp-join-box">
+          <p class="dp-join-label">¿Querés unirte?</p>
           <a href="#" class="btn-p" style="width:100%;justify-content:center">Inscribirme →</a>
         </div>
       </div>
     </div>
-    <p class="dp-sub">Galería</p>
+
+    <p class="dp-gallery-title">Galería</p>
     <div class="dp-photos" id="dpPhotos"></div>
-    <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(45,140,78,.15)">
-      <button onclick="closeDisc()" class="btn-o">← Volver al inicio</button>
-    </div>
   </div>
 </div>
 
@@ -1040,24 +1079,31 @@ function openDisc(id) {
   const d = discs[id]; if (!d) return;
   document.getElementById('dpTag').textContent = d.tag;
   document.getElementById('dpTitle').textContent = d.title;
+  document.getElementById('dpSub').textContent = d.sub || 'Sociedad de Fomento Villa Herminia';
   document.getElementById('dpDesc').textContent = d.desc;
-  document.getElementById('dpBg').style.backgroundImage = d.bg ? `url('${d.bg}')` : 'linear-gradient(135deg,#0d3d1e,#040a06)';
+  // bg photo — if exists show with opacity, else pure green
+  const bgEl = document.getElementById('dpBgPhoto');
+  if (d.bg) {
+    bgEl.style.backgroundImage = `url('${d.bg}')`;
+    bgEl.style.opacity = '0.35';
+  } else {
+    bgEl.style.backgroundImage = 'none';
+    bgEl.style.opacity = '0';
+  }
   document.getElementById('coachAv').textContent = d.coachAv;
   document.getElementById('coachName').textContent = d.coachName;
   document.getElementById('coachRole').textContent = d.coachRole;
   document.getElementById('coachVision').textContent = d.coachVision;
   document.getElementById('dpSched').innerHTML = d.sched.map(s =>
-    `<div style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(45,140,78,.07);border:1px solid rgba(45,140,78,.15)">
-      <span style="color:var(--vc)">⏰</span>
-      <span style="font-size:13px;color:rgba(245,240,232,.65)">${s}</span>
-    </div>`).join('');
+    `<div class="dp-sched-row"><span>${s}</span></div>`).join('');
   document.getElementById('dpPhotos').innerHTML = d.photos.map((p,i) =>
     p ? `<div class="dp-photo"><img src="${p}" alt="Foto ${i+1}" loading="lazy"></div>`
-      : `<div class="dp-photo"><div class="dp-placeholder">📷<span>Próximamente</span></div></div>`
+      : `<div class="dp-photo"><div class="dp-placeholder">Próximamente</div></div>`
   ).join('');
-  document.getElementById('discPage').classList.add('active');
+  const page = document.getElementById('discPage');
+  page.classList.add('active');
+  page.scrollTop = 0;
   document.body.style.overflow = 'hidden';
-  document.getElementById('discPage').scrollTop = 0;
 }
 function closeDisc() {
   document.getElementById('discPage').classList.remove('active');
