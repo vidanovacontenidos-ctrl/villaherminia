@@ -47,7 +47,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 4rem;display:flex
 
 /* ===== HERO ===== */
 .hero{position:relative;height:100vh;min-height:700px;display:flex;align-items:flex-end;overflow:hidden}
-.hero-bg-photo{position:absolute;inset:0;background:url('img/fondo1.png') center center/cover no-repeat;opacity:.18}
+.hero-bg-photo{position:absolute;inset:0;background:url('img/fondo1.png') center center/cover no-repeat;opacity:.28}
+@media(max-width:600px){.hero-bg-photo{background-position:center center;opacity:.22}}
 .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(29,94,50,.4) 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(13,61,30,.6) 0%,transparent 50%),linear-gradient(180deg,rgba(8,15,10,.3) 0%,rgba(8,15,10,.95) 85%),linear-gradient(135deg,#0d3d1e 0%,#091a0e 50%,#060e09 100%)}
 .hero-pattern{position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(45,140,78,.06) 39px,rgba(45,140,78,.06) 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(45,140,78,.06) 39px,rgba(45,140,78,.06) 40px)}
 .hero-emblem{position:absolute;right:8%;top:50%;transform:translateY(-50%);width:380px;height:380px;opacity:.1}
@@ -151,14 +152,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 4rem;display:flex
 /* ===== TIENDA ===== */
 .tienda{position:relative;min-height:80vh;display:flex;align-items:center;overflow:hidden;background:var(--vd)}
 .t-pat{position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,transparent,transparent 34px,rgba(45,140,78,.08) 34px,rgba(45,140,78,.08) 35px)}
-.t-vis{position:absolute;right:0;top:0;bottom:0;width:55%;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.t-vis-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 60% 50%,rgba(29,94,50,.8) 0%,rgba(13,61,30,.4) 40%,transparent 70%)}
-.jersey-wrap{position:relative;z-index:1;width:480px;height:480px;display:flex;align-items:center;justify-content:center}
-.jersey{width:320px;height:380px;background:linear-gradient(135deg,var(--vm),var(--vd));clip-path:polygon(20% 0%,80% 0%,100% 15%,100% 100%,0% 100%,0% 15%);position:relative;border:1px solid rgba(45,140,78,.4);animation:jFloat 4s ease-in-out infinite}
-@keyframes jFloat{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-12px) rotate(-2deg)}}
-.jersey-crest{position:absolute;top:30%;left:50%;transform:translate(-50%,-50%);width:80px;height:80px}
-.jersey-crest img{width:100%;height:100%;object-fit:contain;filter:brightness(2)}
-.jersey-stripes{position:absolute;inset:0;background:repeating-linear-gradient(180deg,transparent,transparent 30px,rgba(255,255,255,.03) 30px,rgba(255,255,255,.03) 31px);clip-path:inherit}
+.t-vis{position:absolute;right:0;top:0;bottom:0;width:52%;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.t-vis-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 60% 50%,rgba(29,94,50,.6) 0%,rgba(13,61,30,.3) 40%,transparent 70%)}
+.t-photo-wrap{position:relative;z-index:1;width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:3rem}
+.t-photo-wrap img{width:100%;max-width:540px;height:100%;object-fit:cover;object-position:center;display:block;animation:jFloat 5s ease-in-out infinite}
+@keyframes jFloat{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-10px) scale(1.01)}}
 .t-content{position:relative;z-index:10;padding:6rem 4rem;max-width:50%}
 .pf{list-style:none;margin:2rem 0;display:flex;flex-direction:column;gap:10px}
 .pf li{display:flex;align-items:center;gap:12px;font-size:14px;color:rgba(245,240,232,.7)}
@@ -684,11 +682,8 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
   <div class="t-pat"></div>
   <div class="t-vis">
     <div class="t-vis-bg"></div>
-    <div class="jersey-wrap">
-      <div class="jersey">
-        <div class="jersey-stripes"></div>
-        <div class="jersey-crest"><img src="img/logo.jpg" alt="Escudo"></div>
-      </div>
+    <div class="t-photo-wrap">
+      <img src="img/fototienda.png" alt="Remera oficial Villa Herminia">
     </div>
   </div>
   <div class="t-content fi">
