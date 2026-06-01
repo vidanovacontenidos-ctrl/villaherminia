@@ -212,18 +212,23 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 4rem;display:flex
 .liga-nombre{font-size:11px;letter-spacing:1px;color:rgba(245,240,232,.5);line-height:1.5;margin-bottom:1rem}
 .liga-dep{display:inline-block;background:rgba(45,140,78,.15);border:1px solid rgba(45,140,78,.3);padding:3px 10px;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--vmenta);font-weight:600}
 
-/* ===== ACCION SOCIAL ===== */
+/* ===== ACCION SOCIAL — ACCORDION ===== */
 .accion{padding:8rem 4rem;background:var(--gos)}
-.acc-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:1px;background:rgba(45,140,78,.1);border:1px solid rgba(45,140,78,.1);margin-top:4rem}
-.acc{background:var(--gos);padding:3rem;position:relative;overflow:hidden;transition:background .3s}
-.acc:hover{background:var(--gom)}
-.acc.feat{grid-row:span 2;background:var(--vd)}
-.acc.feat::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--vc),var(--plata-cl))}
-.acc-icon{font-size:40px;margin-bottom:1.5rem;display:block}
-.acc-title{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:2px;color:var(--blanco);margin-bottom:.75rem}
-.acc-desc{font-size:13px;line-height:1.8;color:rgba(245,240,232,.5);margin-bottom:1.5rem}
-.acc-num{font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--vc);line-height:1;margin-bottom:4px}
-.acc-num-l{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(245,240,232,.35)}
+.acc-accordion{display:flex;flex-direction:column;gap:2px;margin-top:3rem}
+.acc-item{background:var(--negro);border:1px solid rgba(45,140,78,.15);transition:border-color .2s;cursor:pointer}
+.acc-item:hover{border-color:rgba(45,140,78,.4)}
+.acc-item.open{border-color:rgba(45,140,78,.5)}
+.acc-item.open::before{content:'';display:block;height:2px;background:linear-gradient(90deg,var(--vc),transparent)}
+.acc-item-header{display:flex;align-items:center;gap:1rem;padding:1.25rem 1.75rem;user-select:none}
+.acc-item-title{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px;color:var(--blanco);flex:1}
+.acc-item-count{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--vc);font-weight:600;white-space:nowrap}
+.acc-item-arrow{font-size:16px;color:rgba(45,140,78,.6);transition:transform .3s;flex-shrink:0;width:20px;text-align:center}
+.acc-item.open .acc-item-arrow{transform:rotate(180deg);color:var(--vc)}
+.acc-item-body{max-height:0;overflow:hidden;transition:max-height .35s ease, padding .3s ease}
+.acc-item.open .acc-item-body{max-height:200px}
+.acc-item-body p{font-size:14px;line-height:1.8;color:rgba(245,240,232,.6);padding:0 1.75rem 1.5rem;margin:0}
+.acc-item-link{display:inline-flex;align-items:center;gap:8px;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--vc);text-decoration:none;font-weight:600;padding:0 1.75rem 1.5rem;margin-top:-.5rem}
+.acc-item-link:hover{color:var(--vmenta)}
 
 /* ===== PATROCINIO ===== */
 .patrocinio{padding:8rem 4rem;background:var(--negro);position:relative;overflow:hidden}
@@ -391,10 +396,13 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
   .hero-content{padding:0 2rem 6rem}.hero-emblem{display:none}
   .disc-grid{grid-template-columns:1fr 1fr}.not-grid{grid-template-columns:1fr}
   .prog-grid3{grid-template-columns:1fr 1fr}
-  .t-vis{display:none}.t-content{max-width:100%;padding:5rem 2rem;min-height:60vh}
+  .t-vis{display:block;position:relative;width:100%;height:260px;flex-shrink:0}
+  .t-vis img{width:100%;height:100%;object-fit:cover;object-position:center}
+  .t-vis-fade{background:linear-gradient(to bottom,transparent 50%,var(--vd) 100%)}
+  .tienda{flex-direction:column;min-height:auto}
+  .t-content{max-width:100%;padding:2rem 2rem 4rem;width:100%}
   .prog-grid{grid-template-columns:1fr}.prog-grid3{grid-template-columns:1fr}.ligas-grid{grid-template-columns:1fr 1fr}
   .planes-grid{grid-template-columns:1fr 1fr}
-  .acc-grid{grid-template-columns:1fr 1fr}.acc.feat{grid-row:span 1}
   .donar-opts{grid-template-columns:1fr 1fr}.impacto-bar{grid-template-columns:1fr 1fr}
   .ib:nth-child(2){border-right:none}
   .seg-inner{grid-template-columns:1fr}.pat-intro{grid-template-columns:1fr}
@@ -413,7 +421,7 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
   .dc.portrait{aspect-ratio:3/4}
   .dc.landscape{aspect-ratio:3/2}
   .not-grid{grid-template-columns:1fr}
-  .acc-grid,.planes-grid{grid-template-columns:1fr}.ligas-grid{grid-template-columns:1fr 1fr}
+  .planes-grid{grid-template-columns:1fr}.ligas-grid{grid-template-columns:1fr 1fr}
   .donar-opts{grid-template-columns:1fr 1fr}.impacto-bar{grid-template-columns:1fr 1fr}
   .ft{grid-template-columns:1fr;gap:2rem}.fb-bottom{flex-direction:column;align-items:flex-start}
   nav{padding:0 1.5rem}
@@ -778,21 +786,79 @@ footer{background:var(--negro);border-top:1px solid rgba(45,140,78,.2);padding:5
 
 <!-- ACCION SOCIAL -->
 <section class="accion" id="social">
-  <div style="max-width:1300px;margin:0 auto">
-    <div class="sh fi"><p class="sl">Comunidad</p><h2 class="st">Acción<br><span>Social</span></h2></div>
-    <div class="acc-grid">
-      <div class="acc feat fi">
-        <span class="acc-icon">📚</span>
-        <div class="acc-title">Ayuda Escolar</div>
-        <p class="acc-desc">Apoyo pedagógico gratuito para niños y adolescentes del barrio. Profesores voluntarios desde primaria hasta el secundario.</p>
-        <div class="acc-num">+150</div>
-        <div class="acc-num-l">Alumnos acompañados</div>
-        <br><a href="#" style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--vc);display:inline-flex;align-items:center;gap:8px;font-weight:600;text-decoration:none;margin-top:1.5rem">Sumarte como voluntario →</a>
+  <div style="max-width:900px;margin:0 auto">
+    <div class="sh fi"><p class="sl">Comunidad</p><h2 class="st">Acción<br><span>Social</span></h2>
+      <p style="font-size:15px;line-height:1.9;color:rgba(245,240,232,.55);margin-top:1rem;max-width:580px">Desde hace décadas, Villa Herminia trabaja día a día para contener, incluir y hacer crecer a los vecinos del barrio. Más de 300 chicos y familias participan cada semana.</p>
+    </div>
+    <div class="acc-accordion fi" id="accAccordion">
+
+      <div class="acc-item" onclick="toggleAcc(this)">
+        <div class="acc-item-header">
+          <span class="acc-item-title">📚 Ayuda Escolar</span>
+          <span class="acc-item-count">+150 alumnos</span>
+          <span class="acc-item-arrow">↓</span>
+        </div>
+        <div class="acc-item-body">
+          <p>Apoyo pedagógico gratuito para niños y adolescentes del barrio. Profesores voluntarios que acompañan el aprendizaje desde primaria hasta el secundario.</p>
+          <a href="#" class="acc-item-link">Sumarte como voluntario →</a>
+        </div>
       </div>
-      <div class="acc fi"><span class="acc-icon">✂️</span><div class="acc-title">Cortes de Pelo</div><p class="acc-desc">Servicio gratuito de corte de pelo para la comunidad. Peluqueros solidarios cada semana.</p></div>
-      <div class="acc fi"><span class="acc-icon">🎓</span><div class="acc-title">Cursos</div><p class="acc-desc">Talleres de oficios, informática, idiomas y más. Aprendizaje gratuito o de bajo costo.</p></div>
-      <div class="acc fi"><span class="acc-icon">🍽️</span><div class="acc-title">Merienda</div><p class="acc-desc">Merienda y almuerzo diarios para los chicos que participan en las actividades del club.</p></div>
-      <div class="acc fi"><span class="acc-icon">🎭</span><div class="acc-title">Centro Cultural</div><p class="acc-desc">Actividades artísticas, espacios educativos y proyectos comunitarios para todas las edades.</p></div>
+
+      <div class="acc-item" onclick="toggleAcc(this)">
+        <div class="acc-item-header">
+          <span class="acc-item-title">✂️ Cortes de Pelo</span>
+          <span class="acc-item-count">Semanal</span>
+          <span class="acc-item-arrow">↓</span>
+        </div>
+        <div class="acc-item-body">
+          <p>Servicio gratuito de corte de pelo para la comunidad. Peluqueros solidarios cada semana en el club.</p>
+        </div>
+      </div>
+
+      <div class="acc-item" onclick="toggleAcc(this)">
+        <div class="acc-item-header">
+          <span class="acc-item-title">🎓 Cursos y Talleres</span>
+          <span class="acc-item-count">Gratuitos</span>
+          <span class="acc-item-arrow">↓</span>
+        </div>
+        <div class="acc-item-body">
+          <p>Talleres de oficios, informática, idiomas y más. Aprendizaje gratuito o de bajo costo para todos los vecinos del barrio.</p>
+        </div>
+      </div>
+
+      <div class="acc-item" onclick="toggleAcc(this)">
+        <div class="acc-item-header">
+          <span class="acc-item-title">🍽️ Merienda Diaria</span>
+          <span class="acc-item-count">Todos los días</span>
+          <span class="acc-item-arrow">↓</span>
+        </div>
+        <div class="acc-item-body">
+          <p>Merienda y almuerzo diarios para los chicos que participan en las actividades del club.</p>
+        </div>
+      </div>
+
+      <div class="acc-item" onclick="toggleAcc(this)">
+        <div class="acc-item-header">
+          <span class="acc-item-title">🎭 Centro Cultural</span>
+          <span class="acc-item-count">Proyectos activos</span>
+          <span class="acc-item-arrow">↓</span>
+        </div>
+        <div class="acc-item-body">
+          <p>Actividades artísticas, espacios educativos y proyectos comunitarios para todas las edades.</p>
+        </div>
+      </div>
+
+      <div class="acc-item" onclick="toggleAcc(this)">
+        <div class="acc-item-header">
+          <span class="acc-item-title">🤝 Redes de Contención</span>
+          <span class="acc-item-count">Inclusión social</span>
+          <span class="acc-item-arrow">↓</span>
+        </div>
+        <div class="acc-item-body">
+          <p>Articulación con organizaciones sociales para asistir a familias en situación de vulnerabilidad del barrio.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1146,6 +1212,15 @@ function closeDisc() {
   document.body.style.overflow = '';
 }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeDisc(); closeMM(); } });
+
+// ACCORDION — Accion Social
+function toggleAcc(item) {
+  const isOpen = item.classList.contains('open');
+  // close all
+  document.querySelectorAll('.acc-item.open').forEach(i => i.classList.remove('open'));
+  // open clicked if it was closed
+  if (!isOpen) item.classList.add('open');
+}
 
 // FLOAT BTN ANIMATION — loops heart ↔ "DONAR" on mobile
 (()=>{
